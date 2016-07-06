@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Курс Детекции ЛЖИ | Сила Слова тренинговый центр, Киев</title>
+    <meta name="description" content="Курс Детекции Лжи в Киеве,  Распознавание и защита от искаженной информации." />
+    <meta name="keywords" content="Курс Детекции Лжи в Киеве, распознавание лжи, детекция лжи, сила слова." />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="mailru-domain" content="atXOckryo670YJHo" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script async src="js/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script async src="js/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script async src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <script async src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script async src="js/myscripts.js" type="text/javascript"></script>
+    <script async src="js/main.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css' />
+    <!-- Facebook Pixel Code Бойко Михаил-->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+                document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1522098621437998');
+        fbq('track', "PageView");
+    </script>
+    <!-- End Facebook Pixel CodeБойко Михаил -->
+    <!-- Facebook Conversion Code for Регистрация - Артем Монастырный 1 -->
+    <script>(function() {
+        var _fbq = window._fbq || (window._fbq = []);
+        if (!_fbq.loaded) {
+            var fbds = document.createElement('script');
+            fbds.async = true;
+            fbds.src = '//connect.facebook.net/en_US/fbds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(fbds, s);
+            _fbq.loaded = true;
+        }
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6026441886246', {'value':'0.00','currency':'USD'}]);
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-71601968-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        $(document).ready(function(){
+
+            $('#btn_submit').click(function(){
+                // собираем данные с формы
+                var user_name    = $('#user_name').val();
+                var user_email   = $('#user_email').val();
+                var user_phone = $('#user_phone').val();
+                var user_birthday = $('#user_birthday').val();
+                //var loginWindow = window.open('', 'thankyou');
+                // отправляем данные
+                $.ajax({
+                    url: "send.php", // куда отправляем
+                    type: "post", // метод передачи
+                    dataType: "json", // тип передачи данных
+                    data: { // что отправляем
+                        "user_name":    user_name,
+                        "user_email":   user_email,
+                        "user_phone": user_phone,
+                        "user_birthday": user_birthday
+                    },
+                    // после получения ответа сервера
+                    /*success: function(data){
+                     $('.messages').html(data.result); // выводим ответ сервера
+                     setTimeout ( function(){
+                     $('.messages span').hide(1)
+                     }, 3500);
+                     $('.formboxer').find('input[type=text]').val('');*/
+                    // после получения ответа сервера
+                    success: function(data){
+                        $('#user_name').val('');
+                        $('#user_phone').val('');
+                        $('#user_email').val('');
+                        $('#user_birthday').val('');
+
+                        window.location.href = 'http://lies.in.ua/pay.php';
+                    }
+                });
+            });
+
+
+            $('#sub_m').click(function(){
+                // собираем данные с формы
+                var t_name    = $('#t_name').val();
+                var t_email    = $('#t_email').val();
+                var t_mess    = $('#t_mess').val();
+                // отправляем данные
+                $.ajax({
+                    url: "sent.php", // куда отправляем
+                    type: "post", // метод передачи
+                    dataType: "json", // тип передачи данных
+                    data: { // что отправляем
+                        "t_name":   t_name,
+                        "t_email":    t_email,
+                        "t_mess":    t_mess
+                    },
+                    success: function(data){
+                        $('.lightbox').hide(1);
+                        $('.messages2').html(data.result); // выводим ответ сервера
+                        setTimeout ( function(){
+                            $('.messages2 span').hide(1)
+                        }, 3500);
+                        $('#t_name').val('');
+                        $('#t_email').val('');
+                        $('#t_mess').val('');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="page">
+    <header class="header">
+        <div class="wrapper">
+            <a href="#" class="logo">
+                <strong>СИЛА СЛОВА</strong>
+                <span>Тренинговый Центр</span>
+                <!--span>+38(067)73-067-83</span-->
+            </a>
+            <div class="btn_menu"></div>
+            <nav>
+                <ul class="menu">
+                    <li class="current" id="menu1"><a href="#">Главная </a></li>
+                    <li id="menu2"><a href="#">Преподаватель</a></li>
+                    <li id="menu3"><a href="#">Программа Курса</a></li>
+                    <li id="menu4"><a href="#">Отзывы</a></li>
+                    <li id="menu5"><a href="#">Цена и Расписание</a></li>
+                </ul>
+            </nav>
+            <div class="clearfix"></div>
+        </div>
+    </header>
+    <section class="course">
+        <div class="wrapper">
+            <div class="coursename"><span>курс </span>детекции лжи </div>
+            <div class="courseinfo">
+                <span>киев</span>
+                <span>19.09.2016</span>
+                <span class="red">4600 грн</span>
+                <span>6 дней (24 часа) </span>
+            </div>
+            <div class="btn_price top"><a href="#">записаться на курс</a></div>
+        </div>
+    </section>
+    <section class="learn">
+        <div class="wrapper">
+            <h3><span>Чему научитесь?</span></h3>
+            <div class="iconlist">
+                <ul>
+                    <li>
+                        <div class="picbb"><img src="img/p1.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">понимать истинное намерение</div>
+                            <p>человека, мотивы его поведения.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="picbb"><img src="img/p3.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">распознавать обман даже</div>
+                            <p>при разговоре по телефону.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="picbb"><img src="img/p5.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">создавать психологический</div>
+                            <p>портрет за 2 мин.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="picbb"><img src="img/p2.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">выявлять скрываемую и ложную</div>
+                            <p>информацию в процессе разговора.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="picbb"><img src="img/p4.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">прогнозировать</div>
+                            <p>человеческое поведение.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="picbb"><img src="img/p6.png" alt="#" class="icon" /></div>
+                        <div class="picсс">
+                            <div class="title">читать и понимать</div>
+                            <p> эмоции на лице собеседника.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn_price"><a href="#">записаться на курс</a></div>
+        </div>
+    </section>
+    <section class="using">
+        <div class="wrapper">
+            <h3><span>где это пригодится?</span></h3>
+            <div class="graph">
+                <ul>
+                    <li class="item1">Увидите <span>ложь политиков</span> говорящих из телевизора.</li>
+                    <li class="item2">Будете видеть где Вас <span>обманывают сотрудники</span>.</li>
+                    <li class="item3"><span>На переговорах</span> будет понимание где искажают информацию</li>
+                    <li class="item4">Сможете увидеть <span>супружескую измену</span>.</li>
+                    <li class="item5">Узнаете <span>кто ваш настоящий друг, а кто недруг</span>.</li>
+                    <li class="item6">Сможете разоблачить <span>непорядочных партнеров по бизнесу</span>.</li>
+                    <li class="item7"><span>При торге будете</span> знать какая цена самая низкая.</li>
+                    <li class="item8"><span>Дети не смогут ввести</span> Вас в заблуждение.</li>
+                </ul>
+            </div>
+            <div class="btn_price"><a href="#">записаться на курс</a></div>
+        </div>
+    </section>
+    <section class="categories">
+        <h3><span>для кого этот курс?</span></h3>
+        <div class="carousel">
+            <ul>
+                <li class="slide">
+                    <img src="img/s1.png" height="231" width="231" alt="#" />
+                    <p>Специалистам по <br />подбору кадров.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s2.png" height="231" width="231" alt="#" />
+                    <p>Собственникам бизнеса <br />и директорам.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s3.png" height="231" width="231" alt="#" />
+                    <p>Психологам и<br /> психотерапевтам.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s4.png" height="231" width="231" alt="#" />
+                    <p>Переговорщикам <br /> и продавцам.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s5.png" height="231" width="231" alt="#" />
+                    <p>Менеджерам и <br /> управленцам.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s6.png" height="231" width="231" alt="#" />
+                    <p>Амбициозным <br /> студентам.</p>
+                    <span class="bord"></span>
+                </li>
+                <li class="slide">
+                    <img src="img/s7.png" height="231" width="231" alt="#" />
+                    <p>Увлекающимся <br /> психологией.</p>
+                    <span class="bord"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="btn_price"><a href="#">записаться на курс</a></div>
+    </section>
+    <a name="prc"></a>
+    <a name="prog"></a>
+    <section class="block_course">
+        <div class="wrapper">
+            <h3 class="bbg"><span>Курс по распознаванию лжи</span></h3>
+            <h3 class="sm320"><span>Курс по <br /> распознаванию лжи</span></h3>
+            <div class="adv">
+                <ul>
+                    <li>
+                        <img src="img/ic1.png" alt="#" />
+                        <p>6 занятий <br /> по 4 часа</p>
+                    </li>
+                    <li>
+                        <img src="img/ic2.png" alt="#" />
+                        <p>24 часа <br /> практики</p>
+                    </li>
+                    <li>
+                        <img src="img/ic3.png" alt="#" />
+                        <p>20 человек <br />в группе</p>
+                    </li>
+                    <li>
+                        <img src="img/ic4.png" alt="#" />
+                        <p> Цена: <br /> 4 600 грн</p>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="second"><span>расписание и программа курса</span></h3>
+            <div class="schedule">
+                <ul>
+                    <li class="day1">
+                        <div class="topchik">
+                            <div class="date">19.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 1.</div>
+                                <div class="level2">Понедельник <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Введение в теорию лжи.</p>
+                            <p>Определение понятия «ложь»,  с каким феноменом (явлением) мы работаем.</p>
+                            <p>Ложь как убеждение, как эмоция и двойное послание.</p>
+                            <p>Понятие «двойного послания».</p>
+                        </div>
+                    </li>
+                    <li class="day2">
+                        <div class="topchik">
+                            <div class="date">21.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 2.</div>
+                                <div class="level2">Вторник <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Алгоритм проявления ложной информации.</p>
+                            <p>Правила успешного верификатора.</p>
+                            <p>Стимулы (вопросы) в детекции лжи.</p>
+                            <p>Точка ориентировочного замирания.</p>
+                        </div>
+                    </li>
+                    <li class="day3">
+                        <div class="topchik">
+                            <div class="date">22.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 3.</div>
+                                <div class="level2">Четверг <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Упражнение на исследование точки ориентировочного замирания.</p>
+                            <p>Неспицифические реакции в детекции лжи.</p>
+                            <p>Психофизиология детекции лжи. Признаки лжи по ВНС.</p>
+                            <p>Точка сбора: упражнение на объединение информативных признаков.</p>
+                        </div>
+                    </li>
+                    <li class="day4">
+                        <div class="topchik">
+                            <div class="date">26.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 4.</div>
+                                <div class="level2">Понедельник <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Основные формы лжи: Умолчание и Искажение.</p>
+                            <p>Речевые паттерны лжеца.</p>
+                            <p>Понятие оперативной психодиагностики, ее отличия от характерологии и других психодиагностических методик.</p>
+                            <p>Почему появилась оперативная психодиагностика.</p>
+                            <p>Структура оперативной психодиагностики.</p>
+                        </div>
+                    </li>
+                    <li class="day5">
+                        <div class="topchik">
+                            <div class="date">28.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 5.</div>
+                                <div class="level2">Среда <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Психогеометрия тела: как строение тела влияет на поведение в социум. </p>
+                            <p>Мозаичные характеры или понятие «психотравмы».</p>
+                            <p>Стратегии лжи каждого психотипа.</p>
+                            <p>Стратегии коммуникации с каждым психотипом.</p>
+                            <p>Стратегии получения признания у каждого психотипа. </p>
+                            <p>Эмоциональные проявления каждого психотипа</p>
+                        </div>
+                    </li>
+                    <li class="day6">
+                        <div class="topchik">
+                            <div class="date">29.09</div>
+                            <div class="levels">
+                                <div class="level1">Занятие 6.</div>
+                                <div class="level2">Четверг <span>с 19:00–23.00</span></div>
+                            </div>
+                        </div>
+                        <div class="proga">
+                            <p>Контекстный анализ, распознавание влияния социума на личность человека.</p>
+                            <p>Составление психологического портрета, исходя из данных и внешнего поведения человека</p>
+                            <p>Способы и модели использования психологического портрета в кадровом консалтинге, в бизнесе, в семье.</p>
+                            <p>Психолингвистические характеристики модели ОП.</p>
+                            <p>Состояния: интерес, игра, забота.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="special_price">
+                <div class="date">23.09</div>
+                <span>Проверка на детекторе лжи,</span> ОТ <strong>50$</strong> ИНДИВИДУАЛЬНО
+            </div>
+            <div class="btn_price" style="margin:20px auto 0;"><a href="#">записаться на курс</a></div>
+        </div>
+    </section>
+    <section class="block_review">
+        <a name="rev"></a>
+        <div class="wrapper">
+            <h3><span>Отзывы участников курса</span></h3>
+            <div class="revlist">
+                <div class="revbox">
+                    <ul>
+                        <li>
+                            <div class="photo">
+                                <img src="img/man.png" alt="photo" />
+                                <div class="name">Ярослав <br />Литовченко</div>
+                                <div class="name-mob">Ярослав Литовченко</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Большое спасибо за столь замечательный курс по детекции лжи!</p>
+                                <p>Информация увлекательна, определенно применима в жизни. Наконец-то встретил классификацию психики,
+                                    которая действительно что-то объясняет, и сопровождается рекомендациями относительно того, что с этим делать. <br>
+                                    Курс структурирует информацию по коммуникации, классифицирует нюансы речи, объясняет стрессовые реакции. <br>
+                                    В общем, большое спасибо!
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="photo">
+                                <img src="img/man.png" alt="photo" />
+                                <div class="name">Алексей <br />Даличук</div>
+                                <div class="name-mob">Алексей Даличук</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Дмитрий не только Эксперт в своем деле, но и талантливый тренер.</p>
+                                <p>Он умеет преподнести теоретический материал и показать как его использовать на деле.
+                                    Я был поражен тем как легко можно научиться читать истинные эмоции человека по глазам.
+                                    Изучение классификации психотипов помогло мне понять шаблоны поведения членов моей семьи. <br>
+                                    Мне стало ясно почему для моей жены так важно общение с друзьями и близкими, а отца невозможно переговорить.
+                                    Не смотря на напряженный график тренинга, было не утомительно, поскольку Дмитрий умеет поддерживать позитивный настрой в группе.<br>
+                                    Я обязательно приду на второй блок.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="photo">
+                                <img src="img/woman.png" alt="photo" />
+                                <div class="name">Татьяна <br />Депутат</div>
+                                <div class="name-mob">Татьяна Депутат</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Дякую за змістовні та позитивні заняття. Курс був дуже цікавий. </p>
+                                <p>Тепер в наших руках є необхідні "Ключі", які допоможуть з цікавістю застосовувати набуті знання у повсякденному житті,
+                                    та бути пильнішим, та уважнішим до тих, хто нас оточує.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="photo">
+                                <img src="img/woman.png" alt="photo" />
+                                <div class="name">Оксана <br />Саган</div>
+                                <div class="name-mob">Оксана Саган</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Курс Распознавания лжи - самый полезный и интересный курс из тех, что мне доводилось проходить! </p>
+                                <p>Не смотря на занятость на работе, с удовольствием спешила на занятия к Дмитрию! Дима - великолепный тренер,
+                                    с первых слов располагает к себе, его опыт работы, знания и легкая подача материала вовлекают в интереснейший мир лжи.
+                                    За внимательность к деталям, подбор материала, действительно важного для такой "первопроходимки" как я, низкий поклон!
+                                </p>
+                                <p>Полученные знания старалась применить на следующий же день, и что характерно, получалось, стало легче выстраивать
+                                    коммуникацию на работе с коллегами и дома с родными. Осталось только одно небольшое сожаление о том, что не хватало
+                                    времени просмотреть, не говорю уже о том, чтобы прочитать, рекомендованные книги  и очень  уж быстро прошел курс Распознавания лжи.
+                                </p>
+                                <p>Спасибо организаторам, Диме и 18-му Верблюду!!!<br>
+                                    С благодарностью Оксана
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="photo">
+                                <img src="img/face.png" alt="photo" />
+                                <div class="name">наталья <br />токарева</div>
+                                <div class="name-mob">наталья токарева</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Если вы читаете отзыв, предполагаю, что ищите обучение. Когда-то я тоже именно так искала обучение, читала отзывы, нашла академию и пришла на разведку, посмотреть, что и как. Понравилась атмосфера, люди, знания, которыми они делятся. Выбрала для себя вечерний курс «профайлера-верификатора» и….</p>
+                                <p>Наша группа состояла из 10 человек разных по возрасту, профессиям, целям. Надо отметить, что каждый стремился получить крепкие знания и практические навыки. Уникальность курса заключалась в том, что было время на отработку полученного материала, осмысление себя самой в разрезе новой информации. Считаю так же, что нам повезло – нашим тренером был Дмитрий Овчинников. </p>
+                                <p>Фишка Димы – сложное сделать простым, непонятное – понятным. Легкость подачи информации со стороны тренера, азарт и интерес со стороны студентов – залог нашего успешного обучения. Мы научились «не натягивать сову на глобус», смотреть видео под прицелом профайлинга и конечно, задавать любимый вопрос «а конкретнее?»</p>
+                                <p>Пройдя обучение, вы лишитесь наивности, вам будут понятны намерения людей, откроется другой мир. Если этого желаете, то как сказал Дмитрий Овчинников «Добро пожаловать в ад!» Всей команде академии большое спасибо. Ребята, вы клеевые и суперские , а Дима мой кумир!</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="photo">
+                                <img src="img/man.png" alt="photo" />
+                                <div class="name">Вадим <br />Волков</div>
+                                <div class="name-mob">Вадим Волков</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Пунктуален, предусмотрителен, структурирован. Любопытствующий  эрудит, профессионал и знаток своего  дела. Эмоциональность дополняет образ живого человека сложной организации. Конкурентный Игрок и склонен к эпатажу, что в моем понимании тренера дает ему дополнительные возможности.</p>
+                                <p>Наблюдателен до деталей и голодный до обстоятельств. Материал подает не просто интересно, а с обязательным контекстом. Терпеливый слушатель и искренне интересующийся сопряженными дисциплинами тренер. </p>
+                                <p>Вывод: учиться у него - одно удовольствие. «Кашу вместе сварим». Спасибо.</p>
+                            </div>
+                        </li>
+                        <!--
+                        <li>
+                            <div class="photo">
+                                <img src="img/face2.png" alt="photo" />
+                                <div class="name">Дмитрий <br />Черненко </div>
+                                <div class="name-mob">Дмитрий Черненко</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Есть контекст, он важен всегда, но есть люди и они требуют большего внимания к себе, чем среда. Когда ты задумываешься о самореализации и выбираешь способ обучения, мысль о тренере достаточно размыта, и ты ожидаешь увидеть умудренного жизненным опытом ученого мужа. Потом, когда ты встречаешь профайлера, верификатора, бизнес- тренера Дмитрия Овчинникова, понимаешь, есть молодые, энергичные, уверенные в себе, с новым подходом, богатым внутренним миром, читающие и стремящиеся к совершенству эксперты знающие свое дело. Ты слушаешь его и проникаешься доверием, несмотря на то, что иногда он по-доброму лжет. Его интерес не поддельный, а умение держать аудиторию очень профессионально. Проходя обучение у него, думаешь о разном, перекапываешь весь свой предыдущий профессиональный опыт, переоцениваешь его, порою понимаешь, что мир, который для тебя открывает этот специалист немного другой, не такой, каким ты его иногда представлял несмотря на свой жизненный путь. Знания, которые ты получаешь на его тренингах, сразу необходимо применять в работе и жизни, доступность и способ подачи материала располагает к этому.</p>
+                                <p>Любое образование подразумевает получение знаний, а преподаватель, бизнес-тренер, эксперт, передающий эти знания должен обладать качествами присущими человеку разностороннему. Этот труд требует от специалиста уверенности, знания материала, открытости по отношению к окружающим, готовности ответить на возникающие вопросы.</p>
+                                <p>Сначала, когда ты попадаешь в аудиторию, возникают мысли о новизне, проявляемом интересе, развитии. Отлично, если тренер может уловить тончайшую нить зарождающейся коммуникации между ним самим и участниками обучения.</p>
+                                <p>Каждый человек с​​тремящийся быть востребованным должен понимать, что учеба необходима, а взять эти знания надо у тех, кто сам развивается каждый день.</p>
+                                <p>В работе, которой мы занимаемся нужно не просто существовать, а жить, дышать, каждой клеточкой своего организма ощущать и чувствовать все изменения, которые происходят рядом. Дмитрий соответствует всем перечисленным выше качествам.</p>
+                                <p>Пределов совершенству нет и потому у всех есть возможность проявить себя и открыть путь к новому с этим экспертом и преподавателем.</p>
+                            </div>
+                        </li>
+                        !-->
+                        <li>
+                            <div class="photo">
+                                <img src="img/woman.png" alt="photo" />
+                                <div class="name">Надежда <br />Лаврова</div>
+                                <div class="name-mob">Надежда Лаврова</div>
+                            </div>
+                            <div class="revtext">
+                                <p>«Ложь во благо – это хорошо. Но, хорошо только тому, в чьё благо она совершалась». </p>
+                                <p>После посещения курса под предводительством Дмитрия разобраться, "где чье благо", стало легче! :) Информативно, современно, доступно для понимания! Рекомендую курс тем, кто только встает на стезю человековедения, и тем, для кого привычным является открытие разных, новых сторон жизни.</p>
+                                <p>Дмитрий поможет детально разобраться в сути вопроса, изложит суть крайне доступным языком, а также создаст комфортную, дружелюбную, позитивную атмосферу! Спасибо Вам!</p>
+                            </div>
+                        </li>
+                        <!--
+                        <li>
+                            <div class="photo">
+                                <img src="img/woman.png" alt="photo" />
+                                <div class="name">Марина <br />Козлова</div>
+                                <div class="name-mob">Марина Козлова</div>
+                            </div>
+                            <div class="revtext">
+                                <p>Сначала, спасибо организаторам за вечерний курс. Для меня, например, выделить месяц для обучения просто нереально. Хотя, возможно, вечернее обучение дает меньше навыка, чем дневное обучение (впрочем, как и везде). За академией наблюдаю года 2. Не помню даже, как попала на Ваш сайт. Но очень рада, что увидела информацию о наборе вечерней группы.</p>
+                                <p>Зачем я к Вам пришла? Человеческие способности не ограничены, захотелось получить еще один навык. Но сделать верификацию своей профессией – такой цели пока нет. В жизни все пригодится, не надо отказываться от дополнительных знаний. Объем предоставляемой информации оценить не могу, не с чем сравнивать, первый раз учусь не по основной профессии.</p>
+                                <p>Качество преподавания меня устроило. У лектора «язык развязан». Дмитрий материал преподносит свободно, очень эмоционально, с подачей примеров из собственной жизни и демонстрацией видео. Какая-то информация об исследовании лжи была получена раньше, мой друг работает на полиграфе. В процессе обучения весь материал систематизировался. Не все улеглось по полочкам. Правда, еще не все рекомендованные книги прочитаны и фильмы просмотрены. И, к сожалению, возникли проблемы с выполнением домашних заданий, хотя я очень стараюсь. Дмитрий ответил на все мои вопросы и помогал решать собственные проблемы.</p>
+                                <p>Но, в общем, мне полученных знаний хватило. Теперь надо понять, что с ними делать и как их закрепить. Хотя за прошедший месяц мне удалось удачно использовать полученные навыки на переговорах. Отдельное спасибо Дмитрию за консультации и успешные переговоры в результате которых моя организация получила 600 тысяч. рублей.</p>
+                            </div>
+                        </li>
+                        !-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="result">
+        <div class="wrapper">
+            <h3><span>Результаты Учеников</span></h3>
+            <div class="list1">
+                <ul>
+                    <li class="num1">Вернули в компанию <br /> <span>300 000 $</span>.</li>
+                    <li class="num2">В ситуации жестких <br /> переговоров смогли <br /> увеличить прибыльность <br /> проекта на <span>10 000 $</span>.</li>
+                    <li class="num3">Нашли причастных в краже  <br /><span>125 000 $</span>, используя модели <br /> проведения опросной <br /> беседы IARL.</li>
+                </ul>
+            </div>
+            <div class="list2">
+                <ul>
+                    <li class="num4">Вернули украденное<br /> оборудование на <span>13 500 $</span><br /> пользуясь моделями получения <br />признания Академии.</li>
+                    <li class="num5">Раскрыли кражу верхней одежды на <span>10 000 $</span> после <br />анализа видео и получения<br /> необходимой обратной связи.</li>
+                </ul>
+            </div>
+            <div class="btn_price"><a href="#">записаться на курс</a></div>
+        </div>
+        <a name="teach"></a>
+    </section>
+    <section class="block_teacher">
+        <div class="wrapper">
+            <h3><span>Овчинников Дмитрий Вячеславович</span></h3>
+            <div class="status">Эксперт–верификатор, Полиграфолог</div>
+            <div class="cycle">
+                <ul>
+                    <li>
+                        <h5>Образование:</h5>
+                        <p>• Высшее образование —  психологическое;</p>
+                        <p>• НЛП;</p>
+                        <p>• Центр прикладной психофизиологии — полиграфолог;</p>
+                        <p>• Национальная школа детекции лжи.</p>
+                        <br />
+                        <h5>Деятельность:</h5>
+                        <p>• Проверки в направлениях скрининг персонала, кадровые и служебные расследования;</p>
+                        <p>• Предотвращение использования ресурсов компании в личных целях;</p>
+                        <p>• Вербовка и активные мероприятия по дискредитации недобросовестных конкурентов;</p>
+                        <p>• Консультации в сфере ресторанного бизнеса по темам: повышение уровня обслуживания, обучение и подбор персонала;</p>
+                        <p>• Обучение сотрудников Сбербанка из отдела по работе с потенциальными заёмщиками (андеррайтерами) в направлении «Верификация лжи по голосу и психолингвистической структуре речи»</p>
+                        <p>• Проведение открытых тренингов;</p>
+                        <p>• Проведение  закртых тренингов для сотрудников служб безопасности, полиграфологов, госсударственых и банковских структур;</p>
+                        <p>• Индивидуальные консультации по направлениям инструментальная и безинструментальная детекция и профайлинг;</p>
+                        <p>• Обучил более 400 человек;</p>
+                    </li>
+                </ul>
+            </div>
+            <img src="img/speaker.png" alt="#" class="teacher" />
+        </div>
+    </section>
+    <section class="block_reg">
+        <div class="messages"></div>
+        <div class="wrapper">
+            <h3><span>регистрация</span></h3>
+            <p class="text">Укажите в анкете достоверные данные<span>*</span> и отправьте на регистрацию. <br /> После утверждения анкеты на Ваш Email придет письмо с реквизитами для оплаты.</p>
+            <form class="form">
+                <div class="formline">
+                    <div class="formboxer formboxer1"><input required="required" onkeyup='checkParams()' name="name" type="text" placeholder="Ваше ФИО" id="user_name"/></div>
+                    <div class="formboxer formboxer2"><input required="required" onkeyup='checkParams()' name="email" type="text" placeholder="Ваш Email" id="user_email"/></div>
+                    <div class="formboxer formboxer3"><input required="required" onkeyup='checkParams()' name="phone" type="text" placeholder="Ваш Телефон" id="user_phone" /></div>
+                    <div class="formboxer formboxer4"><input required="required" onkeyup='checkParams()' name="birthday" type="text" placeholder="Дата Рождения" id="user_birthday" /></div>
+                </div>
+                <p class="text note"><span>*</span>Вся записанная Вами информация является конфиденциальной. Данные нужны для внутренней статистики и разглашению не подлежат. Администрация имеет право отказать в обучении без объяснения причин.</p>
+                <div class="btn_recs"><input type="button" disabled="" value="записаться на курс" id="btn_submit" /></div>
+            </form>
+        </div>
+        <div class="lightbox">
+            <div class="shadow"></div>
+            <div class="contact_form">
+                <div class="close"></div>
+                <div class="contacts">
+                    <h4>Связаться с нами</h4>
+                    <p>Телефон для справок: +38(067)73-067-83</p>
+
+                    <form class="form2">
+                        <input type="text" name="t_name" id="t_name" placeholder="Ваше Имя">
+                        <input type="text" name="t_email" id="t_email" placeholder="Ваш Email">
+                        <textarea name="t_mess" id="t_mess" placeholder="Ваше Сообщение"></textarea>
+                        <input type="button" id="sub_m" value="Отправить сообщение">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="lightbox2">
+            <div class="shadow"></div>
+            <div class="contact-map">
+                <div class="close"></div>
+                <h4>Карта проезда</h4>
+                <p>г. Киев, ул. Эспланадная, 28, офис 7,<br>
+                    ст. м. Дворец Спорта
+                </p>
+                <div id="map">
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=TygKwMWvQQq4gV2iO8pbYnsT8atvwLmj&width=477&height=355&lang=uk_UA&sourceType=constructor"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="messages2"></div>
+        <div class="wrapper">
+            <div><span class="phone">+38(067)73-067-83</span></div>
+            <span class="rax">|</span>
+            <div><span class="mail">admin@lies.in.ua</span></div>
+            <span class="rax">|</span>
+            <div><span class="adr">Киев, ул. Эспланадная, 28, оф. 7 (<a href="#">карта</a>)</span></div>
+            <span class="rax">|</span>
+            <div><span class="copy">2016 &copy; lies.in.ua</span></div>
+        </div>
+    </footer>
+</div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter34325425 = new Ya.Metrika({
+                    id:34325425,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/34325425" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+
+    var google_conversion_id = 933330568;
+
+    var google_custom_params = window.google_tag_params;
+
+    var google_remarketing_only = true;
+
+    /* ]]> */
+
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/933330568/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+<script>
+    function checkParams() {
+        var pm1 = $('#user_name').val();
+        var pm2 = $('#user_email').val();
+        var pm3 = $('#user_phone').val();
+        var pm4 = $('#user_birthday').val();
+
+        if(pm1.length != 0 && pm2.length != 0 && pm3.length != 0 && pm4.length != 0) {
+            $('#btn_submit').removeAttr('disabled');
+        } else {
+            $('#btn_submit').attr('disabled', 'disabled');}}
+
+</script>
+</body>
+</html>
