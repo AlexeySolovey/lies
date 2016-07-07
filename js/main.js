@@ -208,7 +208,152 @@ var windowWidth = $(window).width();
     });
   }
 
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+                document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
+        fbq('init', '1522098621437998');
+        fbq('track', "PageView");
+
+    (function() {
+          var _fbq = window._fbq || (window._fbq = []);
+          if (!_fbq.loaded) {
+              var fbds = document.createElement('script');
+              fbds.async = true;
+              fbds.src = '//connect.facebook.net/en_US/fbds.js';
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(fbds, s);
+              _fbq.loaded = true;
+          }
+      })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6026441886246', {'value':'0.00','currency':'USD'}]);
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-71601968-1', 'auto');
+        ga('send', 'pageview');
+
+        //validation
+            $('#btn_submit').click(function(){
+                // собираем данные с формы
+                var user_name    = $('#user_name').val();
+                var user_email   = $('#user_email').val();
+                var user_phone = $('#user_phone').val();
+                var user_birthday = $('#user_birthday').val();
+                //var loginWindow = window.open('', 'thankyou');
+                // отправляем данные
+                $.ajax({
+                    url: "send.php", // куда отправляем
+                    type: "post", // метод передачи
+                    dataType: "json", // тип передачи данных
+                    data: { // что отправляем
+                        "user_name":    user_name,
+                        "user_email":   user_email,
+                        "user_phone": user_phone,
+                        "user_birthday": user_birthday
+                    },
+                    success: function(data){
+                        $('#user_name').val('');
+                        $('#user_phone').val('');
+                        $('#user_email').val('');
+                        $('#user_birthday').val('');
+
+                        window.location.href = 'http://lies.in.ua/pay.php';
+                    }
+                });
+            });
+
+
+            $('#sub_m').click(function(){
+                // собираем данные с формы
+                var t_name    = $('#t_name').val();
+                var t_email    = $('#t_email').val();
+                var t_mess    = $('#t_mess').val();
+                // отправляем данные
+                $.ajax({
+                    url: "sent.php", // куда отправляем
+                    type: "post", // метод передачи
+                    dataType: "json", // тип передачи данных
+                    data: { // что отправляем
+                        "t_name":   t_name,
+                        "t_email":    t_email,
+                        "t_mess":    t_mess
+                    },
+                    success: function(data){
+                        $('.lightbox').hide(1);
+                        $('.messages2').html(data.result); // выводим ответ сервера
+                        setTimeout ( function(){
+                            $('.messages2 span').hide(1)
+                        }, 3500);
+                        $('#t_name').val('');
+                        $('#t_email').val('');
+                        $('#t_mess').val('');
+                    }
+                });
+            });
+        });
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter34325425 = new Ya.Metrika({
+                    id:34325425,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/34325425" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+    var google_conversion_id = 933330568;
+
+    var google_custom_params = window.google_tag_params;
+
+    var google_remarketing_only = true;
+
+    /* ]]> */
+
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/933330568/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+    function checkParams() {
+        var pm1 = $('#user_name').val();
+        var pm2 = $('#user_email').val();
+        var pm3 = $('#user_phone').val();
+        var pm4 = $('#user_birthday').val();
+
+        if(pm1.length != 0 && pm2.length != 0 && pm3.length != 0 && pm4.length != 0) {
+            $('#btn_submit').removeAttr('disabled');
+        } else {
+            $('#btn_submit').attr('disabled', 'disabled');}}
 
 
 
