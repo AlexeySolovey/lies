@@ -266,16 +266,31 @@ section.whom .bx-wrapper .bx-viewport {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-section.whom .bx-wrapper .bx-viewport img {
+section.whom .bx-wrapper .bx-viewport .whomSlider {
+  margin-top: 18px;
+}
+section.whom .bx-wrapper .bx-viewport .whomSlider .slider-item {
+  width: 275px !important;
+}
+section.whom .bx-wrapper .bx-viewport .whomSlider .slider-item img {
   margin: 0 auto;
 }
-section.whom .bx-wrapper .bx-viewport p {
+section.whom .bx-wrapper .bx-viewport .whomSlider .slider-item p {
   font-size: 18px;
   font-family: OpenSans-Regular;
   color: #1f201f;
   text-align: center;
-  padding: 0 40px;
+  padding: 0 30px;
+  padding-top: 14px;
   font-weight: 500;
+}
+section.whom .bx-wrapper .bx-viewport .whomSlider .slider-item hr {
+  margin-top: 15px;
+  border-top: 3px solid #096cb8;
+  width: 26%;
+}
+section.whom button {
+  margin-top: 42px;
 }
 /*****************************
 			course

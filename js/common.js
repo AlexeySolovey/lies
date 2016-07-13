@@ -8,7 +8,7 @@
 			pager: false,
 			slideWidth: 300,
 			minSlides: 1,
-			maxSlides: 3,
+			maxSlides: 4,
 			moveSlides: 1,
 			slideMargin: 10
 		});
