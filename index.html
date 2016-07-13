@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -11,35 +11,34 @@
 </head>
 <body>
 	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<img src="images/logo.png" alt="logo" class="logo">
-					<p>сила слова</p>
-					<p>Тренинговий Центр</p>
-				</div>
-				<nav class="col-md-9">
-					<ul>
-						<a href="#">
-							<li>Главная</li>
-						</a>
-						<a href="#">
-							<li>Преподаватель</li>
-						</a>
-						<a href="#">
-							<li>Программа Курса</li>
-						</a>
-						<a href="#">
-							<li>Отзывы</li>
-						</a>
-						<a href="#">
-							<li>Цена и Расписание</li>
-						</a>
-					</ul>
-				</nav>
-			</div>
-		</div>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button id="header-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="images/logo.png" alt="logo" class="logo  pull-left">
+                        <span class="navbar-brand-strong-span">СИЛА СЛОВА</span>
+                        <span>Тренинговий Центр</span>
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav test-header-ul">
+                        <li><a class="navbar-active" href="#">Главная</a></li>
+                        <li><a href="#about">Преподаватель</a></li>
+                        <li><a href="#contact">Программа Курса</a></li>
+                        <li><a href="#about">Отзывы</a></li>
+                        <li><a href="#contact">Цена и Расписание</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 	</header>
+
 	<section class="baner">
 		<div class="container">
 			<div class="row">
@@ -59,7 +58,7 @@
 					</div>
 				</div>
 				<div class="col-md-12">
-					<button>Записаться на курс</button>
+					<button class="test-button">Записаться на курс</button>
 				</div>
 			</div>
 		</div>
@@ -70,19 +69,70 @@
 				<div class="col-md-12">
 					<h2>чему научитесь?</h2>
 				</div>
-				<div class="col-md-6">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+				<div class="col-md-12 study-list">
+                    <div class="col-md-6 pull-left">
+                        <ul>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item1.png" />
+                                </div>
+                               
+                                <div class="study-list-text">
+                                    <h3>ПОНИМАТЬ ИСТИННОЕ НАМЕРЕНИЕ</h3>
+                                    <span>человека, мотивы его поведения.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item5.png" />
+                                </div>
+                                <div class="study-list-text">
+                                    <h3>СОЗДАВАТЬ ПСИХОЛОГИЧЕСКИЙ</h3>
+                                    <span>портрет за 2 мин.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item4.png" />
+                                </div>
+                                <div class="study-list-text">
+                                    <h3>ПРОГНОЗИРОВАТЬ</h3>
+                                    <span>человеческое поведение.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <ul>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item3.png" />
+                                </div>
+                                <div class="study-list-text">
+                                    <h3>РАСПОЗНАВАТЬ ОБМАН ДАЖЕ</h3>
+                                    <span>при разговоре по телефону.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item2.png" />
+                                </div>
+                                <div class="study-list-text">
+                                    <h3>ВЫЯВЛЯТЬ СКРЫВАЕМУЮ И ЛОЖНУЮ</h3>
+                                    <span>информацию в процессе разговора.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="study-list-img pull-left">
+                                    <img src="images/item6.png" />
+                                </div>
+                                <div class="study-list-text">
+                                    <h3>ЧИТАТЬ И ПОНИМАТЬ</h3>
+                                    <span>эмоции на лице собеседника.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 				</div>
 				<div class="col-md-12">
 					<button>Записаться на курс</button>
@@ -94,25 +144,92 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>чему научитесь?</h2>
+					<h2>ГДЕ ЭТО ПРИГОДИТСЯ?</h2>
 				</div>
-				<div class="col-md-6">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-				<div class="col-md-12">
-					<button>Записаться на курс</button>
-				</div>
+                <div class="row">
+                    <div class="col-md-12 need-list">
+                        <div class="col-md-6 pull-left">
+                            <ul>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need1.png" />
+                                    </div>
+
+                                    <div class="need-list-text">
+                                        <p>Увидите <span>ложь политиков</span> говорящих из телевизора.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need2.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p><span>На переговорах</span> будет понимание где искажают информацию</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need3.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p>Узнаете <span>кто ваш настоящий друг, а кто недруг.</span> </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need3.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p><span>При торге будете</span> знать какая цена самая низкая.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 pull-right">
+                            <ul>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need4.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p>Будете видеть где Вас <span>обманывают сотрудники.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need5.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p>Сможете увидеть <span>супружескую измену.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need6.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p>Сможете разоблачить <span>непорядочных партнеров по бизнесу.</span></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="need-list-img pull-left">
+                                        <img src="images/need3.png" />
+                                    </div>
+                                    <div class="need-list-text">
+                                        <p><span>Дети не смогут ввести</span> Вас в заблуждение.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>Записаться на курс</button>
+                    </div>
+                </div>
+				
 			</div>
 		</div>
 	</section>
@@ -177,19 +294,19 @@
 					<div class="course_box">
 						<ul>
 							<li>
-								<img src="" alt="">
+								<img src="images/course1.png" alt="">
 								<p>6 занятий<br/>по 4 часа</p>
 							</li>
 							<li>
-								<img src="" alt="">
+								<img src="images/course2.png" alt="">
 								<p>24 часа <br/> практики</p>
 							</li>
 							<li>
-								<img src="" alt="">
+								<img src="images/course3.png" alt="">
 								<p>20 человек<br/> в группе</p>
 							</li>
 							<li>
-								<img src="" alt="">
+								<img src="images/course4.png" alt="">
 								<p>Цена: <br/> 4 900 грн.</p>
 							</li>
 						</ul>
@@ -202,97 +319,136 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
+                    <!--<div class="program-arrow-1"></div>-->
 					<h2>Расписание и программа курса</h2>
+                     <!--<div class="program-arrow-2"></div>-->
 				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
-				<div class="col-md-6">
-					<div class="date">
-						<p>12.06</p>
-					</div>
-					<h3>занятие </h3>
-					<p>Среда с 19:00-23:00</p>
-					<ul>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-						<li>Lorem ipsum dolor sit amet.</li>
-					</ul>
-				</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="program-day day-1">
+                            <div class="date">
+                                <p>31.07</p>
+                            </div>
+                            <h3>занятие 1 </h3>
+                            <p>Понедельник с 19:00–23.00</p>
+                            <ul>
+                                <li>Введение в теорию лжи.</li>
+                                <li>Определение понятия «ложь», с каким феноменом (явлением) мы работаем.</li>
+                                <li>Ложь как убеждение, как эмоция и двойное послание.</li>
+                                <li>Понятие «двойного послания».</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="program-day day-2">
+                            <div class="date">
+                                <p>07.08</p>
+                            </div>
+                            <h3>занятие 2 </h3>
+                            <p>Вторник с 19:00–23.00</p>
+                            <ul>
+                                <li>Алгоритм проявления ложной информации.</li>
+                                <li>Правила успешного верификатора.</li>
+                                <li>Стимулы (вопросы) в детекции лжи.</li>
+                                <li>Точка ориентировочного замирания.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                   
+                </div>
+				
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="program-day day-3">
+                            <div class="date">
+                                <p>12.08</p>
+                            </div>
+                            <h3>занятие 3 </h3>
+                            <p>Среда с 19:00-23:00</p>
+                            <ul>
+                                <li>Упражнение на исследование точки ориентировочного замирания.</li>
+                                <li>Неспицифические реакции в детекции лжи.</li>
+                                <li>Психофизиология детекции лжи. Признаки лжи по ВНС.</li>
+                                <li>Точка сбора: упражнение на объединение информативных признаков.</li>
+                            </ul>
+                        </div>
+                    </div>
+                  
+                    <div class="col-md-6">
+                        <div class="program-day day-4">
+                            <div class="date">
+                                <p>16.08</p>
+                            </div>
+                            <h3>занятие 4 </h3>
+                            <p>Четверг с 19:00–23.00</p>
+                            <ul>
+                                <li>Основные формы лжи: Умолчание и Искажение.</li>
+                                <li>Речевые паттерны лжеца.</li>
+                                <li>Понятие оперативной психодиагностики, ее отличия от характерологии и других психодиагностических методик.</li>
+                                <li>Почему появилась оперативная психодиагностика.</li>
+                                <li>Структура оперативной психодиагностики.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+			<div class="row">
+                <div class="col-md-6">
+                    <div class="program-day day-3">
+                        <div class="date">
+                            <p>20.08</p>
+                        </div>
+                        <h3>занятие 5 </h3>
+                        <p>Среда с 19:00-23:00</p>
+                        <ul>
+                            <li>Психогеометрия тела: как строение тела влияет на поведение в социум.</li>
+                            <li>Мозаичные характеры или понятие «психотравмы».</li>
+                            <li>Стратегии лжи каждого психотипа.</li>
+                            <li>Стратегии коммуникации с каждым психотипом.</li>
+                            <li>Стратегии получения признания у каждого психотипа.</li>
+                            <li>Эмоциональные проявления каждого психотипа</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="program-day day-6">
+                        <div class="date">
+                            <p>24.08</p>
+                        </div>
+                        <h3>занятие 6 </h3>
+                        <p>Среда с 19:00-23:00</p>
+                        <ul>
+                            <li>Контекстный анализ, распознавание влияния социума на личность человека.</li>
+                            <li>Составление психологического портрета, исходя из данных и внешнего поведения человека</li>
+                            <li>Способы и модели использования психологического портрета в кадровом консалтинге, в бизнесе, в семье.</li>
+                            <li>Психолингвистические характеристики модели ОП.</li>
+                            <li>Состояния: интерес, игра, забота.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+			
 			</div>
 		</div>
 	</section>
 	<section class="check">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<img src="" alt="">
-					<p><span>Проверка на детекторе лжи<span>, от <span>50$</span> индивидуально</p>
-					<button>Записаться на курс</button>
+				<div class="col-md-12 course-individual-div">
+                    <div class="course-individual-div">
+                        <div class="date-bottom">
+                            <p>31.07</p>
+                        </div>
+                        <div class="text-bottom">
+                            <p><span>Проверка  на  детекторе  лжи,</span> от <span class="course-price">50$</span> индивидуально</p>
+                        </div>
+                    </div>		
 				</div>
+                <button>Записаться на курс</button>
 			</div>
 		</div>
 	</section>
@@ -339,33 +495,39 @@
 	<section class="expert">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<h2>
-						Овчинников Дмитрий Вячеславович<br/>
-						<span>Эксперт-верификатор, полиграфолог</span>
-					</h2>
-				</div>
-				<div class="col-md-8">
-					<h3>Образование:</h3>
-					<ul>
-						<li>высшее образование - психологическое;</li>
-						<li>НЛП;</li>
-						<li>Центр прикладной психофизиологии - полиграфолог;</li>
-						<li>Национальна школа детекции лжи</li>
-					</ul>
-					<h3>Деятельность:</h3>
-					<ul>
-						<li>Проверки в направлениях скрининг персонала, кадровые и служебные расследования;</li>
-						<li>Предотвращение использования ресурсов компании в личных целях;</li>
-						<li>Вербовка и активные мероприятия по дискредитации недобросовестных конкурентов;</li>
-						<li>Консультации в сфере ресторанного бизнеса по темам: повышение уровня обслуживания, обучение и подбор персонала;</li>
-						<li>Обучение сотрудников Сбербанка из отдела по работе с потенциальными заёмщиками (андеррайтерами) в направлении «Верификация лжи по голосу и психолингвистической структуре речи»</li>
-						<li>Проведение открытых тренингов;</li>
-						<li>Проведение закртых тренингов для сотрудников служб безопасности, полиграфологов, госсударственых и банковских структур;</li>
-						<li>Индивидуальные консультации по направлениям инструментальная и безинструментальная детекция и профайлинг;</li>
-						<li>Обучил более 400 человек;</li>
-					</ul>
-				</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>
+                            Овчинников Дмитрий Вячеславович<br />
+                            <span>Эксперт-верификатор, полиграфолог</span>
+                        </h2>
+                    </div>
+                </div>
+				
+                <div class="row">
+                    <div class="col-md-8 expert-text">
+                        <h3>ОБАЗОВАНИЕ:</h3>
+                        <ul>
+                            <li>высшее образование - психологическое;</li>
+                            <li>НЛП;</li>
+                            <li>Центр прикладной психофизиологии - полиграфолог;</li>
+                            <li>Национальна школа детекции лжи</li>
+                        </ul>
+                        <h3>ДЕАТЕЛЬНОСТЬ:</h3>
+                        <ul>
+                            <li>Проверки в направлениях скрининг персонала, кадровые и служебные расследования;</li>
+                            <li>Предотвращение использования ресурсов компании в личных целях;</li>
+                            <li>Вербовка и активные мероприятия по дискредитации недобросовестных конкурентов;</li>
+                            <li>Консультации в сфере ресторанного бизнеса по темам: повышение уровня обслуживания, обучение и подбор персонала;</li>
+                            <li>Обучение сотрудников Сбербанка из отдела по работе с потенциальными заёмщиками (андеррайтерами) в направлении «Верификация лжи по голосу и психолингвистической структуре речи»</li>
+                            <li>Проведение открытых тренингов;</li>
+                            <li>Проведение закртых тренингов для сотрудников служб безопасности, полиграфологов, госсударственых и банковских структур;</li>
+                            <li>Индивидуальные консультации по направлениям инструментальная и безинструментальная детекция и профайлинг;</li>
+                            <li>Обучил более 400 человек;</li>
+                        </ul>
+                    </div>
+                </div>
+				
 			</div>
 		</div>
 	</section>
