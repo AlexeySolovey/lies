@@ -3,6 +3,10 @@
 *****************************/
 /*OPEN SANS*/
 @font-face {
+  font-family: OpenSans-Regular;
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+@font-face {
   font-family: gost_2_304-81_type_b;
   src: url(../fonts/gost_2_304-81_type_b.ttf);
 }
@@ -76,10 +80,22 @@ section.whom {
   background: url(../images/block3.jpg) no-repeat 50% 0;
 }
 section.whom .bx-wrapper .bx-viewport {
+  text-align: center;
   background: transparent;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+section.whom .bx-wrapper .bx-viewport img {
+  margin: 0 auto;
+}
+section.whom .bx-wrapper .bx-viewport p {
+  font-size: 18px;
+  font-family: OpenSans-Regular;
+  color: #1f201f;
+  text-align: center;
+  padding: 0 40px;
+  font-weight: 500;
 }
 /*****************************
 			reviews
