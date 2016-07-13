@@ -433,8 +433,35 @@ section.programm .program-day ul li {
 /*****************************
 			reviews
 *****************************/
-section.whom {
+section.reviews {
   background: url(../images/block4.jpg) no-repeat 50% 0;
+  background-size: cover;
+}
+section.reviews .bx-wrapper .bx-viewport {
+  text-align: center;
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 100% !important;
+}
+section.reviews .bx-wrapper .bx-viewport ul li .people img {
+  margin: 0 auto;
+}
+section.reviews .bx-wrapper .bx-viewport ul li .people p {
+  color: #096cb8;
+  font-family: gost_2_304-81_type_b;
+  font-size: 36px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+section.reviews .bx-wrapper .bx-viewport ul li .review_people p {
+  text-align: left;
+  font-size: 16px;
+  font-family: OpenSans-Regular;
+  color: #111111;
 }
 /*****************************
 			results
