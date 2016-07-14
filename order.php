@@ -134,6 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formName"]) && !empty(
 
 
 if (!$error){
-	header('Location: http://lies.in.ua/pay.php');
+	if($_POST["formName"] == "form") header('Location: http://lies.in.ua/pay.php');
+	if($_POST["formName"] == "form2") header('Location: thank.html');
 }
 ?>

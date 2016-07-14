@@ -13,17 +13,6 @@
 /*****************************
 			main
 *****************************/
-h2 {
-  font-family: gost_2_304-81_type_b;
-  text-align: center;
-  font-size: 36px;
-  padding: 71px 10px;
-  margin: 0;
-  letter-spacing: 1px;
-  color: #3b5998;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 a:hover {
   cursor: pointer;
 }
@@ -50,6 +39,18 @@ button {
   text-decoration: none;
   line-height: 47px;
   text-transform: uppercase;
+}
+h2 {
+  font-family: gost_2_304-81_type_b;
+  text-align: center;
+  font-size: 36px;
+  padding: 71px 10px;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #3b5998;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 10px;
 }
 ul {
   padding-left: 0;
@@ -124,9 +125,10 @@ header .test-header-ul {
 *****************************/
 section.baner {
   background: url(../images/block1.jpg);
+  background-size: cover;
   height: 619px;
 }
-section.baner .test-button {
+section.baner button {
   display: table;
   margin-left: auto;
   margin-right: auto;
@@ -476,16 +478,69 @@ section.expert {
   background: url(../images/block5.jpg) no-repeat 50% 0;
   background-size: cover;
 }
+section.expert h2 {
+  line-height: 48px;
+}
 section.expert span {
   color: #dd4b4b;
   margin-top: 5px;
   line-height: 50px;
 }
+section.expert img {
+  position: absolute;
+  left: 680px;
+  bottom: 0;
+}
 section.expert .expert-text {
   padding-left: 80px;
+  padding-bottom: 40px;
 }
 section.expert .expert-text h3 {
+  font-size: 26px;
   color: #096cb8;
+}
+section.expert .expert-text ul {
+  font-size: 18px;
+}
+section.expert .expert-text ul li {
+  list-style-type: circle !important;
+  display: list-item !important;
+}
+/*****************************
+		registration
+*****************************/
+section.registration h2 {
+  padding-bottom: 40px;
+}
+section.registration p {
+  font-size: 18px;
+  color: #484849;
+  text-align: center;
+  margin-bottom: 40px;
+}
+section.registration .registration-inputs {
+  /*  padding-top: 30px;
+	   padding-bottom: 25px;
+	   padding:0 180px; */
+}
+section.registration .registration-inputs input {
+  float: left;
+  display: block;
+  border: 1px solid #72b2e5;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0 18px;
+  width: 100%;
+  height: 39px;
+  line-height: 39px;
+  color: #818283;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+section.registration .other-info {
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 14px !important;
 }
 /*****************************
 			404
@@ -525,9 +580,80 @@ section.expert .expert-text h3 {
   font-size: 8px;
 }
 /*****************************
+			thanks
+*****************************/
+.thanks {
+  background-size: contain;
+  background-position: left;
+}
+.thanks .thanks-body {
+  text-align: center;
+  padding: 30px 20px 30px 20px;
+}
+.thanks .thanks-body a {
+  color: #46E63E;
+  border: 2px solid #46E63E;
+  padding: 6px 35px;
+  margin-top: 50px;
+  font-size: 8px;
+}
+.thanks .thanks-body a:hover {
+  color: #000;
+}
+.thanks .thanks-body .thanks-text {
+  margin-top: 100;
+  font-weight: bold;
+  font-size: 17px;
+}
+.thanks .thanks-body .text {
+  font-size: 15px;
+  margin-top: 8px;
+}
+/*****************************
 			media
 *****************************/
+@media screen and (max-width: 992px) {
+  section.expert img {
+    display: none;
+  }
+  .navbar-nav li a {
+    font-size: 12px !important;
+    padding: 4px 5px !important;
+  }
+  .first-item h1 {
+    padding: 15px !important;
+    font-size: 36px !important;
+  }
+  .second-item {
+    padding: 15px !important;
+    font-size: 36px !important;
+  }
+  .second-item ul {
+    padding-left: 105px;
+  }
+  .second-item ul li {
+    width: 61%;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media screen and (max-width: 768px) {
+  .first-item h1 {
+    font-size: 25px !important;
+  }
+  .second-item {
+    font-size: 25px !important;
+  }
+  .text-bottom {
+    font-size: 16px;
+  }
+  .course-price {
+    font-size: 25px !important;
+  }
+  .registration-inputs {
+    padding: 0;
+  }
   section.results .first_block_results ul li {
     width: 100%;
     max-width: 360px;
@@ -559,6 +685,9 @@ section.expert .expert-text h3 {
     padding: 0 90px 0 0;
     text-align: right;
     float: right;
+  }
+  section.course .course_box ul {
+    width: 53%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -633,11 +762,13 @@ section.expert .expert-text h3 {
 }
 @media screen and (min-width: 992px) {
   /*404*/
-  .body404 {
+  .body404,
+  .thanks {
     background: url("../images/fon_woman.png") no-repeat;
     min-height: 800px;
   }
-  .body404 .error .error-body {
+  .body404 .error .error-body,
+  .thanks .thanks-body {
     text-align: right;
   }
 }
