@@ -29,13 +29,17 @@ a:focus {
 	outline: none; /*отключить внешние границы*/
 	background: transparent; /*отключить background*/
 }
+body{
+	overflow-x: hidden;
+}
 button{
+	position: relative;
 	margin-bottom: 50px;
 	outline: none;
 	display: table;
 	margin-left: auto;
 	margin-right: auto;
-	width: 282px;
+	width: 182px;
 	height: 47px;
 	background: #dd4b4b;
 	border: 1px solid #fff;
@@ -46,18 +50,28 @@ button{
 	text-decoration: none;
 	line-height: 47px;
 	text-transform: uppercase;
+	&:hover{
+		text-decoration:underline;
+	}
+	&:before, &:after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 70px;
+		height: 50px;
+	}
 }
 h2{
- font-family: @gost;
- text-align: center;
- font-size: 36px;
- padding: 71px 10px;
- margin: 0;
- letter-spacing: 1px;
- color: @blue;
- text-transform: uppercase;
- font-weight:bold;
- margin-top:10px;
+	font-family: @gost;
+	text-align: center;
+	font-size: 36px;
+	padding: 71px 10px;
+	margin: 0;
+	letter-spacing: 1px;
+	color: @blue;
+	text-transform: uppercase;
+	font-weight:bold;
+	margin-top:10px;
 }
 ul{
 	padding-left: 0;
@@ -65,6 +79,19 @@ ul{
 		list-style-type: none;
 		display: inline-block;
 	}
+}
+input.error,
+input.error:focus,
+textarea.error,
+textarea.error:focus{
+    border:1px solid red;
+    outline: red;
+    -webkit-box-shadow: 0px 0px 3px 0px red;
+    -moz-box-shadow:    0px 0px 3px 0px red;
+    box-shadow:         0px 0px 3px 0px red;
+}
+label.error{
+	color: red;
 }
 /*****************************
 			header
@@ -78,7 +105,7 @@ header{
 		.navbar-header{
 			#header-btn{
 				width:auto;
-					margin-top: 18px;
+				margin-top: 18px;
 			}
 			a{
 				height: auto;
@@ -96,12 +123,13 @@ header{
 					display: block;
 					font-size: 14px;
 				}
-				.navbar-brand-strong-span{
+				.slogan{
 					font-weight:bold;
 					margin-top: 9px;
 					display: inline-block;
 					display: block;
 					font-size: 21px;
+					text-transform: uppercase;
 				}
 
 			}
@@ -119,7 +147,8 @@ header{
 						border-radius: 5px;
 						padding: 4px 20px;
 					}
-					.navbar-active{
+					:hover,
+					.active{
 						color: #fff;
 						background: #0b6db9;
 					}
@@ -127,13 +156,11 @@ header{
 			}
 		}
 	}
-	.test-header-ul{
+	.header-ul{
 		float:right;
 		margin: 16px 0 0;
 	}
 }
-
-
 /*****************************
 			baner
 *****************************/
@@ -142,20 +169,16 @@ section.baner{
 	background-size:cover;
 	height: 619px;
 	button{
-		display: table;
-	margin-left: auto;
-	margin-right: auto;
-	width: 282px;
-	height: 47px;
-	background: #dd4b4b;
-	border: 1px solid #fff;
-	border-radius: 9px;
-	color: #fff;
-	font-size: 18px;
-	text-align: center;
-	text-decoration: none;
-	line-height: 47px;
-	text-transform: uppercase;
+		&:before{
+			background: url(../images/arrow_left_white.png) no-repeat;
+			left: -120px;
+			top: -19px;
+		}
+		&:after{
+			background: url(../images/arrow_right_white.png) no-repeat;
+			right: -120px;
+			top: -19px;
+		}
 	}
 	.first-item{
 		display: table;
@@ -347,13 +370,15 @@ section.course{
 	}
 }
 section.programm{
-	.rogram-arrow-1{
-		background: url(/images/arrow_1.png) no-repeat;
-		background-size:contain;
+	h2 span::before{
+		background: url(../images/arrow_left_blue.png) no-repeat;
+		left: -120px;
+		top: -19px;
 	}
-	.rogram-arrow-2{
-		background: url(/images/arrow_2.png) no-repeat center;
-		background-size:contain;
+	h2 span::after{
+		background: url(../images/arrow_right_blue.png) no-repeat;
+		right: -120px;
+		top: -19px;
 	}
 	.program-day{
 		text-align: center;
@@ -382,10 +407,10 @@ section.programm{
 			float: left;
 			font-weight: bold;
 			p{
-					position: relative;
-					font-size: 20px;
-					 bottom: 4px;
-					font-weight: bold;
+				position: relative;
+				font-size: 20px;
+				 bottom: 4px;
+				font-weight: bold;
 			}
 			}
 		 h3{
@@ -400,8 +425,9 @@ section.programm{
 
 		 ul{
 			 li{
-			   padding: 0 0 0 27px;
+				padding: 0 0 0 27px;
 				background: url(../images/check.png) no-repeat 0 3px;
+				position: relative;
 				color: #1f201f;
 				line-height: 1.3;
 				font-size: 16px;
@@ -410,38 +436,18 @@ section.programm{
 			 }
 		 }
 	}
-
-	
-}
 	.date-bottom{
-			margin: 0 20px 20px 0;
-			width: 70px;
-			height: 70px;
-			display: block;
-			background: url(../images/calendar.png) no-repeat 50% 13px #dfe3ee;
-			padding: 37px 0 0;
-			color: #3b5998;
-			font-size: 18px;
-			text-align: center;
-			float: left;
-			font-weight: bold;
-	}
-	.day-1{
-		border-right:1px solid @blue;
-	}
-	.day-3{
-		border-top:1px solid @blue;
-		border-right:1px solid @blue;
-	}
-	.day-4{
-		border-top:1px solid @blue;
-	}
-	.day-5{
-		border-top:1px solid @blue;
-		border-right:1px solid @blue;
-	}
-	 .day-6{
-		border-top:1px solid @blue;
+		margin: 0 20px 20px 0;
+		width: 70px;
+		height: 70px;
+		display: block;
+		background: url(../images/calendar.png) no-repeat 50% 13px #dfe3ee;
+		padding: 37px 0 0;
+		color: #3b5998;
+		font-size: 18px;
+		text-align: center;
+		float: left;
+		font-weight: bold;
 	}
 	 .course-individual-div{
 		display: inline-block;
@@ -463,8 +469,8 @@ section.programm{
 			font-weight: bold;
 			margin: 0 5px;
 		}
-	 }
-
+	}
+}
 /*****************************
 			reviews
 *****************************/
@@ -564,10 +570,6 @@ section.registration{
 		margin-bottom: 40px;
 	}
 	.registration-inputs{
-	   /*  padding-top: 30px;
-	   padding-bottom: 25px;
-	   padding:0 180px; */
-
 		input{
 			float: left;
 			display: block;
@@ -581,12 +583,82 @@ section.registration{
 			color: #818283;
 			font-size: 16px;
 			margin-bottom:10px;
+			&.error, &.error:focus{
+				border: 1px solid red;
+			}
 		}
+	}
+	.info-block p{
+		font-size: 15px;
+		padding-top: 10px;
 	}
 	.other-info{
 		margin-top:20px;
 		display:inline-block;
 		font-size:14px !important;
+	}
+}
+/*****************************
+			footer
+*****************************/
+footer {
+	border-top: 1px solid #3b5998;
+	padding: 30px 20px 20px; 
+	ul{
+		text-align: center;
+		color: #3b5998;
+		font-size: 16px;
+		font-family: @OS_regular;
+		li{
+			padding: 3px 20px;
+			a{
+				text-decoration: underline;
+			}
+		}
+	}
+}
+/*****************************
+			modal
+*****************************/
+section.modal_window{
+	.modal{
+		text-align: center;
+		.modal-content{
+			padding: 20px 50px;
+			button{
+				margin-bottom: 20px;
+			}
+			h4{
+				margin-bottom: 35px;
+			}
+			p{
+				font-family: @gost;
+				text-transform: uppercase;
+				color: #4d5a6d;
+				line-height: 1.2;
+				font-size: 26px;
+				padding-bottom: 30px;
+			}
+			input, textarea{
+				width: 100%;
+				padding: 5px;
+				margin-bottom: 20px;
+			}
+			label{
+				display: block;
+			}
+			.close{
+				color: #f19b0f;
+				margin: -4px -32px;
+				opacity: 1;
+				background-image: url(../images/cross.png);
+				height: 18px;
+				width: 18px;
+				&:hover{
+					background-image: url(../images/cross_hover.png);
+				}
+			}
+		}
 	}
 }
 /*****************************
@@ -696,8 +768,8 @@ section.registration{
 		}
 }
 
-@media screen and (max-width: 768px){
-	  .first-item{
+@media screen and (max-width: 767px){
+	.first-item{
 			h1{
 				 font-size: 25px !important;
 			}
@@ -754,21 +826,26 @@ section.registration{
 	   
 	}
 section.course .course_box ul{
-				width: 53%;
+		width: 53%;
 	}
+	/*footer*/
+	footer 	ul span{display: none;}
 }
 @media screen and (min-width: 768px){
+	/*main*/
+	button{width: 282px;}
 	/*result*/
 	section.results{
 		.first_block_results{
 			ul li{
 				color: @text;
-				font-size: 18px;
+				font-size: 14px;
 				padding: 135px 0 0 70px;
-				width: 33%;
+				width: 32%;
 				line-height: 1.3;
 				vertical-align: top;
 				position: relative;
+				font-family: @OS_regular;
 				&:before{
 					content: '';
 					display: block;
@@ -778,6 +855,10 @@ section.course .course_box ul{
 					position: absolute;
 					left: 0;
 					top: 25px;
+				}
+				font{
+					color: #096cb8;
+					font-weight: bold;
 				}
 			}
 			.line{
@@ -794,11 +875,13 @@ section.course .course_box ul{
 					text-align: left;
 					position: relative;
 					color: @text;
-					font-size: 18px;
+					font-family: @OS_regular;
+					font-size: 14px;
 					padding: 15px 0 0 72px;
 					min-height: 175px;
-					width: 40%;
+					width: 35%;
 					line-height: 1.3;
+					vertical-align: top;
 					&:before{
 						content: '';
 						display: block;
@@ -807,7 +890,11 @@ section.course .course_box ul{
 						height: 146px;
 						position: absolute;
 						left: 0;
-						top: 25px;
+						top: 45px;
+					}
+					font{
+						color: #096cb8;
+						font-weight: bold;
 					}
 				}
 			}
@@ -815,26 +902,46 @@ section.course .course_box ul{
 	}
 	/*404*/
 	.body404 .error	.error-body {
-				padding: 90px 70px 50px 50px;
-				a{
-					font-size: 16px;
-				}
-				h1{
-					font-size: 170px;
-				}
-				.error-bold-text {
-					font-size: 34px;
-				}
-				.error-bold-text-2{
-					font-size: 30px;
-				}
-				.error-bold-text-3{
-					font-size: 16px;
-				}
-			}
+		padding: 90px 70px 50px 50px;
+		a{
+			font-size: 16px;
+		}
+		h1{
+			font-size: 170px;
+		}
+		.error-bold-text {
+			font-size: 34px;
+		}
+		.error-bold-text-2{
+			font-size: 30px;
+		}
+		.error-bold-text-3{
+			font-size: 16px;
+		}
+	}
+	.thanks .thanks-body {
+		margin-top:100px; 
+		a{
+			font-size: 16px;
+		}
+		.thanks-text{
+			font-size: 34px;
+		}
+		.text{
+			font-size: 30px;
+		}
+	}
+
 }
 
 @media screen and (min-width: 992px){
+	section.results{
+		.first_block_results ul li,
+		.second_block_results ul li{
+			font-size: 18px;
+			width: 33%;
+		}
+	}
 	/*404*/
 	.body404, .thanks {background: url("../images/fon_woman.png") no-repeat; min-height: 800px;}
 	.body404 .error .error-body, 

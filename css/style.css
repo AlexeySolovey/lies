@@ -22,13 +22,17 @@ a:focus {
   background: transparent;
   /*отключить background*/
 }
+body {
+  overflow-x: hidden;
+}
 button {
+  position: relative;
   margin-bottom: 50px;
   outline: none;
   display: table;
   margin-left: auto;
   margin-right: auto;
-  width: 282px;
+  width: 182px;
   height: 47px;
   background: #dd4b4b;
   border: 1px solid #fff;
@@ -39,6 +43,17 @@ button {
   text-decoration: none;
   line-height: 47px;
   text-transform: uppercase;
+}
+button:hover {
+  text-decoration: underline;
+}
+button:before,
+button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 70px;
+  height: 50px;
 }
 h2 {
   font-family: gost_2_304-81_type_b;
@@ -58,6 +73,19 @@ ul {
 ul li {
   list-style-type: none;
   display: inline-block;
+}
+input.error,
+input.error:focus,
+textarea.error,
+textarea.error:focus {
+  border: 1px solid red;
+  outline: red;
+  -webkit-box-shadow: 0px 0px 3px 0px red;
+  -moz-box-shadow: 0px 0px 3px 0px red;
+  box-shadow: 0px 0px 3px 0px red;
+}
+label.error {
+  color: red;
 }
 /*****************************
 			header
@@ -89,12 +117,13 @@ header nav .navbar-header a span {
   display: block;
   font-size: 14px;
 }
-header nav .navbar-header a .navbar-brand-strong-span {
+header nav .navbar-header a .slogan {
   font-weight: bold;
   margin-top: 9px;
   display: inline-block;
   display: block;
   font-size: 21px;
+  text-transform: uppercase;
 }
 header nav #navbar {
   background-color: #f8f8f8;
@@ -112,11 +141,12 @@ header nav #navbar ul li a {
   border-radius: 5px;
   padding: 4px 20px;
 }
-header nav #navbar ul li .navbar-active {
+header nav #navbar ul li :hover,
+header nav #navbar ul li .active {
   color: #fff;
   background: #0b6db9;
 }
-header .test-header-ul {
+header .header-ul {
   float: right;
   margin: 16px 0 0;
 }
@@ -128,21 +158,15 @@ section.baner {
   background-size: cover;
   height: 619px;
 }
-section.baner button {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  width: 282px;
-  height: 47px;
-  background: #dd4b4b;
-  border: 1px solid #fff;
-  border-radius: 9px;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  line-height: 47px;
-  text-transform: uppercase;
+section.baner button:before {
+  background: url(../images/arrow_left_white.png) no-repeat;
+  left: -120px;
+  top: -19px;
+}
+section.baner button:after {
+  background: url(../images/arrow_right_white.png) no-repeat;
+  right: -120px;
+  top: -19px;
 }
 section.baner .first-item {
   display: table;
@@ -321,13 +345,15 @@ section.course .course_box ul li img {
   width: 120px;
   margin-bottom: 18px;
 }
-section.programm .rogram-arrow-1 {
-  background: url(/images/arrow_1.png) no-repeat;
-  background-size: contain;
+section.programm h2 span::before {
+  background: url(../images/arrow_left_blue.png) no-repeat;
+  left: -120px;
+  top: -19px;
 }
-section.programm .rogram-arrow-2 {
-  background: url(/images/arrow_2.png) no-repeat center;
-  background-size: contain;
+section.programm h2 span::after {
+  background: url(../images/arrow_right_blue.png) no-repeat;
+  right: -120px;
+  top: -19px;
 }
 section.programm .program-day {
   text-align: center;
@@ -375,13 +401,14 @@ section.programm .program-day h3 {
 section.programm .program-day ul li {
   padding: 0 0 0 27px;
   background: url(../images/check.png) no-repeat 0 3px;
+  position: relative;
   color: #1f201f;
   line-height: 1.3;
   font-size: 16px;
   margin: 0 0 7px;
   width: 100%;
 }
-.date-bottom {
+section.programm .date-bottom {
   margin: 0 20px 20px 0;
   width: 70px;
   height: 70px;
@@ -394,24 +421,7 @@ section.programm .program-day ul li {
   float: left;
   font-weight: bold;
 }
-.day-1 {
-  border-right: 1px solid #3b5998;
-}
-.day-3 {
-  border-top: 1px solid #3b5998;
-  border-right: 1px solid #3b5998;
-}
-.day-4 {
-  border-top: 1px solid #3b5998;
-}
-.day-5 {
-  border-top: 1px solid #3b5998;
-  border-right: 1px solid #3b5998;
-}
-.day-6 {
-  border-top: 1px solid #3b5998;
-}
-.course-individual-div {
+section.programm .course-individual-div {
   display: inline-block;
   overflow: hidden;
   text-align: center;
@@ -421,13 +431,13 @@ section.programm .program-day ul li {
   text-transform: uppercase;
   color: #3b5998;
 }
-.course-individual-div .text-bottom {
+section.programm .course-individual-div .text-bottom {
   display: inline-block;
 }
-.course-individual-div span {
+section.programm .course-individual-div span {
   color: #dd4b4b;
 }
-.course-individual-div .course-price {
+section.programm .course-individual-div .course-price {
   font-size: 53px;
   font-weight: bold;
   margin: 0 5px;
@@ -518,11 +528,6 @@ section.registration p {
   text-align: center;
   margin-bottom: 40px;
 }
-section.registration .registration-inputs {
-  /*  padding-top: 30px;
-	   padding-bottom: 25px;
-	   padding:0 180px; */
-}
 section.registration .registration-inputs input {
   float: left;
   display: block;
@@ -537,10 +542,80 @@ section.registration .registration-inputs input {
   font-size: 16px;
   margin-bottom: 10px;
 }
+section.registration .registration-inputs input.error,
+section.registration .registration-inputs input.error:focus {
+  border: 1px solid red;
+}
+section.registration .info-block p {
+  font-size: 15px;
+  padding-top: 10px;
+}
 section.registration .other-info {
   margin-top: 20px;
   display: inline-block;
   font-size: 14px !important;
+}
+/*****************************
+			footer
+*****************************/
+footer {
+  border-top: 1px solid #3b5998;
+  padding: 30px 20px 20px;
+}
+footer ul {
+  text-align: center;
+  color: #3b5998;
+  font-size: 16px;
+  font-family: OpenSans-Regular;
+}
+footer ul li {
+  padding: 3px 20px;
+}
+footer ul li a {
+  text-decoration: underline;
+}
+/*****************************
+			modal
+*****************************/
+section.modal_window .modal {
+  text-align: center;
+}
+section.modal_window .modal .modal-content {
+  padding: 20px 50px;
+}
+section.modal_window .modal .modal-content button {
+  margin-bottom: 20px;
+}
+section.modal_window .modal .modal-content h4 {
+  margin-bottom: 35px;
+}
+section.modal_window .modal .modal-content p {
+  font-family: gost_2_304-81_type_b;
+  text-transform: uppercase;
+  color: #4d5a6d;
+  line-height: 1.2;
+  font-size: 26px;
+  padding-bottom: 30px;
+}
+section.modal_window .modal .modal-content input,
+section.modal_window .modal .modal-content textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+section.modal_window .modal .modal-content label {
+  display: block;
+}
+section.modal_window .modal .modal-content .close {
+  color: #f19b0f;
+  margin: -4px -32px;
+  opacity: 1;
+  background-image: url(../images/cross.png);
+  height: 18px;
+  width: 18px;
+}
+section.modal_window .modal .modal-content .close:hover {
+  background-image: url(../images/cross_hover.png);
 }
 /*****************************
 			404
@@ -638,7 +713,7 @@ section.registration .other-info {
     margin-right: auto;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .first-item h1 {
     font-size: 25px !important;
   }
@@ -689,17 +764,26 @@ section.registration .other-info {
   section.course .course_box ul {
     width: 53%;
   }
+  /*footer*/
+  footer ul span {
+    display: none;
+  }
 }
 @media screen and (min-width: 768px) {
+  /*main*/
+  button {
+    width: 282px;
+  }
   /*result*/
   section.results .first_block_results ul li {
     color: #484849;
-    font-size: 18px;
+    font-size: 14px;
     padding: 135px 0 0 70px;
-    width: 33%;
+    width: 32%;
     line-height: 1.3;
     vertical-align: top;
     position: relative;
+    font-family: OpenSans-Regular;
   }
   section.results .first_block_results ul li:before {
     content: '';
@@ -710,6 +794,10 @@ section.registration .other-info {
     position: absolute;
     left: 0;
     top: 25px;
+  }
+  section.results .first_block_results ul li font {
+    color: #096cb8;
+    font-weight: bold;
   }
   section.results .first_block_results .line {
     position: relative;
@@ -724,11 +812,13 @@ section.registration .other-info {
     text-align: left;
     position: relative;
     color: #484849;
-    font-size: 18px;
+    font-family: OpenSans-Regular;
+    font-size: 14px;
     padding: 15px 0 0 72px;
     min-height: 175px;
-    width: 40%;
+    width: 35%;
     line-height: 1.3;
+    vertical-align: top;
   }
   section.results .second_block_results ul li:before {
     content: '';
@@ -738,7 +828,11 @@ section.registration .other-info {
     height: 146px;
     position: absolute;
     left: 0;
-    top: 25px;
+    top: 45px;
+  }
+  section.results .second_block_results ul li font {
+    color: #096cb8;
+    font-weight: bold;
   }
   /*404*/
   .body404 .error .error-body {
@@ -759,8 +853,25 @@ section.registration .other-info {
   .body404 .error .error-body .error-bold-text-3 {
     font-size: 16px;
   }
+  .thanks .thanks-body {
+    margin-top: 100px;
+  }
+  .thanks .thanks-body a {
+    font-size: 16px;
+  }
+  .thanks .thanks-body .thanks-text {
+    font-size: 34px;
+  }
+  .thanks .thanks-body .text {
+    font-size: 30px;
+  }
 }
 @media screen and (min-width: 992px) {
+  section.results .first_block_results ul li,
+  section.results .second_block_results ul li {
+    font-size: 18px;
+    width: 33%;
+  }
   /*404*/
   .body404,
   .thanks {

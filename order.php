@@ -1,6 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
-define("EMAIL_TO", "solovey_alexey3@mail.ru");
+define("EMAIL_TO", "admin@lies.in.ua");
 define("EMAIL_FROM", "From: Детекция Лжи <admin@lies.in.ua>");
 define("SUBJECT", "Новая заявка с сайта");
 

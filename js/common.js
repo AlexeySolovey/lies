@@ -1,5 +1,29 @@
 ;(function($){
 	$(document).ready(function() {
+		//nav bar
+		$(".nav li a").click(function(){
+			$(".nav li a").removeClass("active");
+			$(this).addClass("active");
+		});
+		// navigation (scroll)
+		$(".nav li:first-child").click(function(){
+			$('body,html').animate({
+					scrollTop:0}, 503);
+			return false;
+		});
+		$(document).on('click', 'a[href^=#]', function () {
+				$('html, body').animate({ scrollTop: $('a[name="'+this.hash.slice(1)+'"]').offset().top }, 1000 ); 
+		return false;
+		});
+		// navigation (close with scroll)
+		$(document).scroll(function(){
+			var responsive = $("#responsive-menu");
+			var headerMenuState = responsive.attr("aria-expanded");
+
+			if (headerMenuState) {
+				responsive.collapse('hide');
+			}
+		});
 		//slider for whom section
 		$('.whomSlider').bxSlider({
 			auto: true,
@@ -15,12 +39,12 @@
 		$('.reviews_slider').bxSlider({
 			auto: true,
 			pager: false,
+			controls: false,
 			infiniteLoop: false,
 			hideControlOnEnd: true
 		});
 
-
-
+		//validation
 		var formValidateOptions = {
 	  rules: {
 		  name: {
