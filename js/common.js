@@ -44,6 +44,8 @@
 			hideControlOnEnd: true
 		});
 
+		//maskedinput
+		$("#user_phone").mask("(999) 999-99-99");
 		//validation
 		var formValidateOptions = {
 	  rules: {
