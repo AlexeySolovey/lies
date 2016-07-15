@@ -114,7 +114,7 @@ header{
 			a{
                 font-family:@OS_regular;
 				height: auto;
-				width: 258px;
+				width: 240px;
 				display: block;
 				background: url(../img/logo.png) no-repeat;
 				/*padding: 7px 0 6px 66px;*/
@@ -147,8 +147,21 @@ header{
                 padding-bottom: 15px;
 				margin: 28px 0 0;
 				li{
-					margin-left: 0;
-					padding-left: 0;
+					margin: 0 0 0 4px;
+					padding: 0 5px 0 0;
+					position: relative;
+					&:after{
+						content: "";
+						position: absolute;
+						right: 0;
+						top: 20%;
+						height: 60%;
+						width: 2px;
+						background: #096cb8;
+					}
+					&:last-child:after{
+						position: relative;
+					}
 					a{
 						color: #096cb8;
 						border-radius: 5px;
@@ -171,6 +184,7 @@ section.baner{
 	background: url(../images/block1.jpg);
 	background-size:cover;
 	height: 619px;
+	background-position-x: 30%;
 	button{
 		&:before{
 			background: url(../images/arrow_left_white.png) no-repeat;
@@ -235,6 +249,7 @@ section.baner{
             vertical-align: middle;
             &:last-child{
                 font-size:26px;
+                border: none;
             }
             span{
                 color:@red;
@@ -937,6 +952,7 @@ section.modal_window{
 	}
 }
 @media screen and (max-width: 991px){
+	section.baner{background-position-x: 40%;}
 	.whom__container{
 		width: 80%;
 		position: relative;
@@ -1024,6 +1040,9 @@ section.modal_window{
 }
 
 @media screen and (max-width: 767px){
+	header nav #navbar ul li:after{
+			position: relative;
+	}
 	section.need .need-list ul li .need-list-text{
 		margin-top: 10px;
 	}
