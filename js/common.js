@@ -28,7 +28,7 @@
 		$('.whomSlider').bxSlider({
 			auto: true,
 			autoHover: true,
-			controls: false,
+			controls: true,
 			pager: false,
 			slideWidth: 300,
 			minSlides: 1,
@@ -37,9 +37,9 @@
 			slideMargin: 10
 		});
 		$('.reviews_slider').bxSlider({
-			auto: true,
+			auto: false,
 			pager: false,
-			controls: false,
+			controls: true,
 			infiniteLoop: false,
 			hideControlOnEnd: true
 		});

@@ -237,7 +237,7 @@
 				<div class="col-md-12">
 					<h2>Для кого этот курс?</h2>
 				</div>
-				<div class="col-md-12">
+				<div class="col-md-12 whom__container">
 					<div class="whomSlider">
 						<div class="slider-item">
 							<img src="images/whom1.png">
@@ -390,7 +390,7 @@
 				</div>
 			<div class="row">
 				<div class="col-md-6">
-					<div class="program-day day-3">
+					<div class="program-day day-3 day-5">
 						<div class="date">
 							<p>22.06</p>
 						</div>
@@ -539,7 +539,6 @@
 				</div>
 			</div>
 		</div>
-		}
 	</section>
 	<section class="expert">
 		<a name="expert"></a>
@@ -600,7 +599,7 @@
 					<div class="col-md-6">
 						<div class="registration-inputs">
 							<div>
-								<input required="required" minlength="3" maxlength="20" name="name" type="text" placeholder="Ваше ФИО" id="user_name"/>
+								<input required="required" minlength="3" maxlength="100" name="name" type="text" placeholder="Ваше ФИО" id="user_name"/>
 							</div>
 							<div>
 								<input required="required" minlength="3" maxlength="50" name="email" type="email" placeholder="Ваш Email" id="user_email"/>
@@ -610,7 +609,7 @@
 					<div class="col-md-6">
 						<div class="registration-inputs">
 							<div>
-								<input required="required" name="phone" type="text" placeholder="Ваш Телефон" id="user_phone" />
+								<input required="required" name="phone" type="tel" placeholder="Ваш Телефон" id="user_phone" pattern="[0-9]" />
 							</div>
 							<div>
 								<input required="required" minlength="10"  maxlength="10" name="birthday" type="text" placeholder="Дата Рождения" id="user_birthday" />

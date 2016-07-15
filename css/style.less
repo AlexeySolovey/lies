@@ -142,6 +142,7 @@ header{
 			background-color:@header-background;
             width: 100%;
             margin: 0px;
+            text-align: right;
 			ul{
                 padding-bottom: 15px;
 				margin: 28px 0 0;
@@ -281,6 +282,10 @@ section.study{
 		margin: 24px 15px 0 0;
 		height: 40px;
 	}
+	.study-list-text{
+		margin: 0 0 0 50px;
+	}
+
 }
 /*****************************
 			need
@@ -298,10 +303,11 @@ section.need{
 			li{
 				width: 100%;
 				margin-bottom:15px;
+				font-size: 17px;
 				.need-list-text{
                     font-family:@OS_regular;
 					margin-top: 18px;
-					margin-left:12px;
+					margin-left:55px;
 					 span{
 						font-weight:bold;
 						color:@blue;
@@ -316,40 +322,82 @@ section.need{
 	}
 }
 /*****************************
-			whom
+			controls
 *****************************/
-section.whom{
-	background: url(../images/block3.jpg) no-repeat 50% 0;
-	.bx-wrapper .bx-viewport{
-		text-align: center;
-		background: transparent;
-		border: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		.whomSlider{
-			margin-top: 18px;
-			.slider-item{
-				width: 275px !important;
-				img{
-					margin: 0 auto;
-				}
-				p{
-					font-size: 18px;
-					font-family: @OS_regular;
-					color: #1f201f;
-					text-align:center;
-					padding: 0 30px;
-					padding-top: 14px;
-					font-weight: 500;
-				}
-				hr{
-					margin-top: 15px;
-					border-top: 3px solid #096cb8;
-					width: 26%;
-				}
-			}
+	.bx-wrapper {
+		.bx-next {
+			display: block;
+			background: url(../images/img/arrows.png) no-repeat 100% 0;
+			width: 32px;
+			height: 61px;
+			right: -30px;
+			top: 30%;
+			position: absolute;
+			cursor: pointer;
+			text-indent: -9999px;
+		}
+		.bx-prev {
+			display: block;
+			background: url(../images/img/arrows.png) no-repeat;
+			width: 32px;
+			height: 61px;
+			left: -40px;
+			top: 30%;
+			position: absolute;
+			cursor: pointer;
+			text-indent: -9999px;
 		}
 	}
+	.reviews{
+		.bx-wrapper {
+			.bx-next {
+				right: -20px;
+				top: 30%;
+			}
+			.bx-prev {
+				left: -40px;
+				top: 30%;
+			}
+	}
+	}
+/*****************************
+			whom
+*****************************/
+.whom__container{
+	padding: 5px;
+}
+section.whom{
+	background: url(../images/block3.jpg) no-repeat 50% 0;
+		.bx-viewport{
+				text-align: center;
+				background: transparent;
+				border: 0;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				.whomSlider{
+					margin-top: 18px;
+					.slider-item{
+						width: 275px !important;
+						img{
+							margin: 0 auto;
+						}
+						p{
+							font-size: 18px;
+							font-family: @OS_regular;
+							color: #1f201f;
+							text-align:center;
+							padding: 0 30px;
+							padding-top: 14px;
+							font-weight: 500;
+						}
+						hr{
+							margin-top: 15px;
+							border-top: 3px solid #096cb8;
+							width: 26%;
+						}
+					}
+				}
+			}
 	button{
 		margin-top: 42px;
 	}
@@ -388,15 +436,75 @@ section.course{
 	}
 }
 section.programm{
+	.day-1,
+	.day-2,
+	.day-3,
+	.day-4,
+	.day-6{
+	  position: relative;
+	}
+	.day-1:after,
+	.day-1:before,
+	.day-2:after,
+	.day-3:after,
+	.day-3:before,
+	.day-4:after,
+	.day-6:after{
+		content: "";
+		position: absolute;
+		background: #9daccb;
+	}
+
+	.day-3:after,
+	.day-1:after{
+		right: -2.5%;
+		top: 10%;
+		height: 85%;
+		width: 1px;
+	}
+	.day-3:before,
+	.day-1:before{
+		bottom: -10%;
+		left: 5%;
+		height: 1px;
+		width: 90%;
+	}
+	.day-4:after,
+	.day-6:after,
+	.day-2:after{
+		bottom: -19%;
+		right: 5%;
+		width: 90%;
+		height: 1px;
+	}
+	.day-4:after{
+		bottom: -7%;
+	}
+	.day-6:after{
+		bottom: -5%;
+	}
+	h2 span{
+		position: relative;
+	}
 	h2 span::before{
-		background: url(../images/arrow_left_blue.png) no-repeat;
-		left: -120px;
-		top: -19px;
+		display:block;
+		content: '';
+		position:absolute;
+		background:url(../images/img/arrow_btn_left2.png) no-repeat;
+		width:62px;
+		height:60px;
+		left:-120px;
+		top:-45px;
 	}
 	h2 span::after{
-		background: url(../images/arrow_right_blue.png) no-repeat;
-		right: -120px;
-		top: -19px;
+		display:block;
+		content: '';
+		position:absolute;
+		background:url(../images/img/arrow_btn_right2.png) no-repeat;
+		width:69px;
+		height:59px;
+		right:-120px;
+		top:-45px;
 	}
 	.program-day{
 		text-align: center;
@@ -801,14 +909,60 @@ section.modal_window{
         .course_box{
             ul{
                 li{
-                    margin: 0px 4%;
+                    margin: 0 3%;
                 }
                 width:100%;
+                text-align: center;
             }
         }
     }
 }
-@media screen and (max-width: 992px){
+@media (max-width: 1199px) and (min-width: 992px){
+	section.programm {
+		.day-2:after{
+		bottom: -28%;
+		}
+		.day-3:after{
+			height: 100%;
+		}
+		.day-3:before{
+			bottom: -24%;
+		}
+		.day-5:after{
+			height: 85%;
+		}
+		.day-5:before {
+			bottom:-3%;
+		}
+	}
+}
+@media screen and (max-width: 991px){
+	.whom__container{
+		width: 80%;
+		position: relative;
+		left: 13%;
+	}
+	.bx-wrapper .bx-next{
+		right: -7%;
+	}
+	.reviews .bx-wrapper{
+		.bx-prev,
+		.bx-next{
+			top: 15%;
+		}
+		.bx-prev{
+			left: 10%;
+		}
+		.bx-next{
+			right: 10%;
+		}
+	} 
+	section.programm .day-1:after,
+	section.programm .day-3:after{
+		width: 0;
+		height: 0;
+		position: relative;
+	}
     section.check{
        .course-individual-div{
            .text-bottom{
@@ -870,6 +1024,18 @@ section.modal_window{
 }
 
 @media screen and (max-width: 767px){
+	section.need .need-list ul li .need-list-text{
+		margin-top: 10px;
+	}
+	section.programm h2 span:before,
+	section.programm h2 span:after,{
+		display:none !important;
+	}
+	.baner {
+		.container{
+			padding: 0;
+		}
+	}
     .study{
         .row{
                 padding-bottom: 10px !important;
@@ -880,14 +1046,11 @@ section.modal_window{
                 padding-bottom: 20px !important;
         }
     }
-    	&:before, &:after{
-		display:none !important;
-	}
     header{
 	nav{
 		.navbar-header{
 			a{
-				width: 158px;
+				width: 240px;
                 }
             }
         }
@@ -910,7 +1073,7 @@ section.modal_window{
 			margin-left:auto;
 			margin-right:auto;
 			li{
-				display:table;
+			display:table;
 			margin-left:auto;
 			margin-right:auto;
                 }
@@ -941,10 +1104,6 @@ section.modal_window{
 
 
 	/*logo*/
-	header nav .navbar-header a span{
-		display: none;
-		&.slogan{display: none;}
-	}
 	.first-item{
 			h1{
 				 font-size: 25px !important;
@@ -1010,11 +1169,28 @@ section.course .course_box ul{
 
 }
 @media screen and (max-width: 400px){
-        section.check{
+	.navbar-default {
+		max-width:400px;
+		min-width: 310px;
+	}
+	.whom__container{
+		left: 4%;
+		width: 86%;
+		.bx-next{
+			right: -30px;
+		}
+		.bx-prev{
+			left: -10px;
+		}
+	}
+	.container{
+		max-width: 400px;
+		overflow: hidden;
+	}
+	    section.check{
        .course-individual-div{
            .text-bottom{
-               width: 112px;
-               font-size: 14px;
+               font-size: 18px;
            }
            }
        }
@@ -1041,6 +1217,10 @@ section.course .course_box ul{
     }
     }
 @media screen and (max-width: 320px){
+		.container{
+			max-width: 400px;
+			overflow: hidden;
+		}
     section.baner{
         .second-item{
             ul{
