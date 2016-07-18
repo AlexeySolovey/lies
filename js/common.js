@@ -1,5 +1,16 @@
 ;(function($){
 	$(document).ready(function() {
+		// anchor to form
+		$('.registration-btn').click(function(){
+			$('html, body').animate({scrollTop: $('#registration-btn').offset().top}, 1000);
+			return false;
+		});
+		// header
+		if ($(this).scrollTop() > 400) {
+			$("body").css("display","none");
+		} else {
+			$("body").css("display","block");
+		}
 		//nav bar
 		$(".nav li a").click(function(){
 			$(".nav li a").removeClass("active");
@@ -95,7 +106,7 @@
 		  t_name:  {
 			required: true,
 			minlength: 3,
-			maxlength: 20
+			maxlength: 100
 		  },
 		  t_email: {
 			required: true,

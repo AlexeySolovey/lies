@@ -97,15 +97,22 @@ textarea.error:focus{
 label.error{
 	color: red;
 }
+a[href="#registration"]{
+  color: #fff;
+}
 /*****************************
 			header
 *****************************/
+.shrink{
+  height: 1000px;
+}
 header{
 	nav{
 		width: 100%;
 		position:fixed !important;
 		height: 85px;
 		margin-bottom: 0 !important;
+	    top: 0;
 		.navbar-header{
 			#header-btn{
 				width:auto;
@@ -185,6 +192,7 @@ section.baner{
 	background-size:cover;
 	height: 619px;
 	background-position-x: 30%;
+    margin-top: 85px;
 	button{
 		&:before{
 			background: url(../images/arrow_left_white.png) no-repeat;
@@ -222,7 +230,6 @@ section.baner{
 		}
 	}
     .second-item{
-        padding: 17px 0 15px;
         border-radius: 9px;
         margin: 0 0 45px;
         background: #f3f3f3;
@@ -239,6 +246,7 @@ section.baner{
             display: table;
             margin-left: auto;
             margin-right: auto;
+		  margin-bottom: 0;
         }
         li{
             display: inline-block;
@@ -282,7 +290,7 @@ section.study{
 	}
 	h3{
 		color: #3b5998;
-		font-size: 20px;
+		font-size: 24px;
 		text-transform: uppercase;
 		font-family:@gost;
 		text-align: left;
@@ -299,6 +307,9 @@ section.study{
 	}
 	.study-list-text{
 		margin: 0 0 0 50px;
+	  span{
+		font-size: 18px;
+	  }
 	}
 
 }
@@ -472,7 +483,7 @@ section.programm{
 
 	.day-3:after,
 	.day-1:after{
-		right: -2.5%;
+		right: -3.5%;
 		top: 10%;
 		height: 85%;
 		width: 1px;
@@ -480,16 +491,16 @@ section.programm{
 	.day-3:before,
 	.day-1:before{
 		bottom: -10%;
-		left: 5%;
+		left: 0;
 		height: 1px;
-		width: 90%;
+		width: 95%;
 	}
 	.day-4:after,
 	.day-6:after,
 	.day-2:after{
 		bottom: -19%;
-		right: 5%;
-		width: 90%;
+		right: 0;
+		width: 95%;
 		height: 1px;
 	}
 	.day-4:after{
@@ -525,7 +536,7 @@ section.programm{
 		text-align: center;
 		vertical-align: top;
 		display: inline-block;
-		padding: 35px 50px 0;
+		padding: 35px 5px 0 5px;
 		margin: 0 0 35px;
 		position: relative;
 		text-align: left;
@@ -952,6 +963,11 @@ section.modal_window{
 	}
 }
 @media screen and (max-width: 991px){
+  .day-2:after,
+  .day-4:after,
+  .day-6:after{
+	left: 0;
+  }
 	section.baner{background-position-x: 40%;}
 	.whom__container{
 		width: 80%;
@@ -1006,7 +1022,6 @@ section.modal_window{
 			}
 		}
 		.second-item{
-					padding: 17px 0 15px;
 		border-radius: 9px;
 		margin: 0 0 45px;
 		background: #f3f3f3;
@@ -1040,6 +1055,9 @@ section.modal_window{
 }
 
 @media screen and (max-width: 767px){
+  header nav #navbar ul li a{
+	display: inline-block;
+  }
 	header nav #navbar ul li:after{
 			position: relative;
 	}
@@ -1125,11 +1143,11 @@ section.modal_window{
 	/*logo*/
 	.first-item{
 			h1{
-				 font-size: 25px !important;
+				 font-size: 30px !important;
 			}
 		}
 		.second-item{
-			font-size: 25px !important;
+			font-size: 30px !important;
 		}
 	 .text-bottom{
 				font-size: 16px;
@@ -1193,10 +1211,10 @@ section.course .course_box ul{
 		min-width: 310px;
 	}
 	.whom__container{
-		left: 4%;
+		left: 6%;
 		width: 86%;
 		.bx-next{
-			right: -30px;
+			right: -20px;
 		}
 		.bx-prev{
 			left: -10px;
@@ -1219,7 +1237,7 @@ section.course .course_box ul{
                 li{
                     border:none;
                    &:last-child{
-                       font-size: 20px;
+                       font-size: 30px;
                                }
                 }
             }
@@ -1227,9 +1245,6 @@ section.course .course_box ul{
 	.first-item{
 		padding-top: 165px;
         }
-    .second-item{
-        font-size:20px !important;
-    }
     }
         h2{
 	padding: 50px 10px;
