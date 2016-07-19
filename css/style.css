@@ -103,10 +103,19 @@ header nav {
   height: 85px;
   margin-bottom: 0 !important;
   top: 0;
+  transition-property: height;
+  transition-duration: 1s;
+}
+header nav .navbar-header .navbar-brand {
+  padding-bottom: 0;
+  transition-property: padding-top;
+  transition-duration: 1s;
 }
 header nav .navbar-header #header-btn {
   width: auto;
   margin-top: 18px;
+  transition-property: margin-top;
+  transition-duration: 1s;
 }
 header nav .navbar-header a {
   font-family: OpenSans-Regular;
@@ -139,10 +148,15 @@ header nav #navbar {
   width: 100%;
   margin: 0px;
   text-align: right;
+  margin-top: 10px;
+  transition-property: margin-top;
+  transition-duration: 1s;
 }
 header nav #navbar ul {
   padding-bottom: 15px;
   margin: 28px 0 0;
+  transition-property: margin-top;
+  transition-duration: 1s;
 }
 header nav #navbar ul li {
   margin: 0 0 0 4px;
@@ -1009,6 +1023,10 @@ section.modal_window .modal .modal-content .close:hover {
     margin-left: auto;
     margin-right: auto;
   }
+  section.whom .bx-viewport {
+    width: 300px !important;
+    margin: 0 auto;
+  }
   button span {
     display: none;
   }
@@ -1092,6 +1110,13 @@ section.modal_window .modal .modal-content .close:hover {
   .whom__container .bx-prev {
     left: -10px;
   }
+  section.whom .bx-viewport {
+    width: 260px !important;
+    margin: 0 auto;
+  }
+  section.whom .bx-viewport img {
+    width: 170px;
+  }
   .container {
     max-width: 400px;
     overflow: hidden;
@@ -1111,6 +1136,9 @@ section.modal_window .modal .modal-content .close:hover {
   h2 {
     padding: 50px 10px;
   }
+  section.check .course-individual-div .text-bottom {
+    width: 66%;
+  }
 }
 @media screen and (max-width: 320px) {
   .container {
@@ -1125,6 +1153,26 @@ section.modal_window .modal .modal-content .close:hover {
   }
   section.programm .program-day .date {
     margin-right: 65px;
+  }
+}
+@media screen and (max-width: 767px) {
+  header nav #navbar {
+    width: 160px;
+    margin-right: -15px;
+    text-align: right;
+    float: right;
+  }
+  section.baner .second-item ul {
+    width: 200px;
+  }
+  section.baner .second-item ul li {
+    font-size: 50px;
+  }
+  section.baner .second-item ul li span {
+    font-size: 40px;
+  }
+  section.baner .second-item ul li:last-child {
+    font-size: 24px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -1236,7 +1284,7 @@ section.modal_window .modal .modal-content .close:hover {
   section.results .first_block_results ul li,
   section.results .second_block_results ul li {
     font-size: 18px;
-    width: 33%;
+    width: 32%;
   }
   /*404*/
   .body404,
