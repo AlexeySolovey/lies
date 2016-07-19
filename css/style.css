@@ -776,9 +776,10 @@ section.modal_window .modal {
 }
 section.modal_window .modal .modal-content {
   padding: 20px 50px;
+  padding-bottom: 40px;
 }
 section.modal_window .modal .modal-content button {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 section.modal_window .modal .modal-content h4 {
   margin-bottom: 35px;
