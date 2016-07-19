@@ -63,7 +63,7 @@
 		  name: {
 			required: true,
 			minlength: 3,
-			maxlength: 20
+			maxlength: 100
 		  },
 		  email: {
 			required: true,
