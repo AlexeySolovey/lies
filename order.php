@@ -1,8 +1,4 @@
-<?php
-header('Content-type: text/html; charset=utf-8');
-define("EMAIL_TO", "admin@lies.in.ua");
-define("EMAIL_FROM", "From: Детекция Лжи <admin@lies.in.ua>");
-define("SUBJECT", "Новая заявка с сайта");
+define("SUBJECT2", "Новое сообщение с сайта");
 
 $error = false;
 
@@ -35,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formName"]) && !empty(
 
 		if (!$error){
             //регистрация
-			$messageToManager = "<p>Время отправки: ".date("d.m.Y, H:i:s")."</p>";
+			$messageToManager .= "<p>Время отправки: ".date("d.m.Y, H:i:s")."</p>";
 			$messageToManager .= "<p>Имя пользователя: $name</p>";
 			$messageToManager .= "<p>Телефон пользователя: $phone</p>";
 			$messageToManager .= "<p>E-mail пользователя: $email</p>";
@@ -63,6 +59,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formName"]) && !empty(
 			$messageToClient .= "<p>Михаил Бойко</p>";
 			$messageToClient .= "<p>+38 (067) 730-67-83</p>";
 			$messageToClient .= "<p>http://lies.in.ua</p>";
+            
+            if (!$error){
+        		$headers = "Content-type: text/html; charset=utf-8 \r\n";
+        		$headers .= EMAIL_FROM."\r\n";
+                $headers .= "Reply-To: ".$_POST['email']."\r\n";
+        
+        		$error = !mail(EMAIL_TO, SUBJECT, $messageToManager, $headers);
+        
+        		if (!$error){
+        			file_put_contents("orders.txt", $messageToFile, FILE_APPEND);
+        			$error = !mail($email, "Re: Детекция Лжи: регистрация", $messageToClient, $headers);
+        		}
+        
+        	} 
 		}
 
 	} else if ($_POST["formName"] == "form2"){
@@ -111,6 +121,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formName"]) && !empty(
 			$messageToClient .= "<p>Михаил Бойко</p>";
 			$messageToClient .= "<p>+38 (067) 730-67-83</p>";
 			$messageToClient .= "<p>http://lies.in.ua</p>";
+            
+            if (!$error){
+        		$headers = "Content-type: text/html; charset=utf-8 \r\n";
+        		$headers .= EMAIL_FROM."\r\n";
+                $headers .= "Reply-To: ".$_POST['email']."\r\n";
+        
+        		$error = !mail(EMAIL_TO, SUBJECT2, $messageToManager, $headers);
+        	}
 		}
 	} else {
 		$error = true;
@@ -119,6 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["formName"]) && !empty(
 	if (!$error){
 		$headers = "Content-type: text/html; charset=utf-8 \r\n";
 		$headers .= EMAIL_FROM."\r\n";
+        $headers .= "Reply-To: ".$_POST['email']."\r\n";
 
 		$error = !mail(EMAIL_TO, SUBJECT, $messageToManager, $headers);
 
